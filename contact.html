@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | ShiftFlow — Let's Make Scheduling Easier</title>
+  <meta name="description"
+    content="Get in touch with the ShiftFlow team. Sales, Support, Partnerships, and General Enquiries — we're here to help you schedule smarter.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ========== CONTACT PAGE STYLES ========== */
+
+    /* Hero */
+    .c-hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(135deg, #f8faff 0%, #eef2ff 50%, #f0fdf4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .c-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f1f15 100%);
+    }
+
+    .c-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .c-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .c-hero-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .c-hero-breadcrumb a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .c-hero-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .c-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.1);
+      color: var(--color-primary);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(79, 70, 229, 0.2);
+    }
+
+    .c-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--color-heading);
+      margin-bottom: 1.5rem;
+    }
+
+    .c-hero h1 span {
+      color: var(--color-primary);
+    }
+
+    .c-hero p {
+      font-size: 1.125rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+
+    .c-hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Hero Image / Visual */
+    .c-hero-visual {
+      position: relative;
+    }
+
+    .c-hero-img-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .c-hero-img-wrap img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .c-hero-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(15, 23, 42, 0.6) 100%);
+    }
+
+    .c-hero-img-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    [data-theme="dark"] .c-hero-img-badge {
+      background: rgba(30, 41, 59, 0.95);
+    }
+
+    .c-hero-img-badge .badge-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .c-hero-img-badge strong {
+      display: block;
+      color: var(--color-heading);
+      font-size: 0.95rem;
+    }
+
+    .c-hero-img-badge span {
+      color: var(--color-text-light);
+      font-size: 0.8rem;
+    }
+
+    /* Contact Options */
+    .c-options {
+      padding: 80px 0;
+      background: var(--color-surface);
+    }
+
+    .c-options-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .c-option-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      transition: all 0.25s ease;
+    }
+
+    .c-option-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+    }
+
+    .c-opt-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(79, 70, 229, 0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--color-primary);
+    }
+
+    .c-option-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-heading);
+    }
+
+    .c-option-card p {
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .c-option-card .opt-hours {
+      font-size: 0.78rem;
+      color: var(--color-text-light);
+      margin-top: 0.25rem;
+    }
+
+    .c-option-card a.opt-email {
+      font-weight: 600;
+      color: var(--color-primary);
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .c-option-card a.opt-email:hover {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+    }
+
+    /* Form + Info */
+    .c-form-section {
+      padding: 100px 0;
+      background: var(--color-bg);
+    }
+
+    .c-form-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .c-form-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .c-form-card h2 {
+      font-size: 2rem;
+      color: var(--color-heading);
+      margin-bottom: 0.5rem;
+    }
+
+    .c-form-card .form-desc {
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+    }
+
+    .c-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .c-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .c-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .c-form-group label {
+      font-weight: 600;
+      font-size: 0.825rem;
+      color: var(--color-heading);
+    }
+
+    .c-form-group input,
+    .c-form-group select,
+    .c-form-group textarea {
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: var(--color-bg);
+      color: var(--color-text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .c-form-group input:focus,
+    .c-form-group select:focus,
+    .c-form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+    }
+
+    .c-form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    /* Info sidebar */
+    .c-info-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .c-info-card {
+      background: var(--color-heading);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+
+    [data-theme="dark"] .c-info-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+    }
+
+    .c-info-card h3 {
+      color: white;
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    [data-theme="dark"] .c-info-card h3 {
+      color: var(--color-heading);
+    }
+
+    .c-info-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+    }
+
+    .c-info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .c-info-item-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #a5b4fc;
+    }
+
+    [data-theme="dark"] .c-info-item-icon {
+      background: rgba(79, 70, 229, 0.15);
+    }
+
+    .c-info-item-text strong {
+      display: block;
+      color: white;
+      font-size: 0.875rem;
+      margin-bottom: 0.2rem;
+    }
+
+    [data-theme="dark"] .c-info-item-text strong {
+      color: var(--color-heading);
+    }
+
+    .c-info-item-text span {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    [data-theme="dark"] .c-info-item-text span {
+      color: var(--color-text-light);
+    }
+
+    /* Social row inside info sidebar */
+    .c-social-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+    }
+
+    .c-social-card h4 {
+      font-size: 1rem;
+      color: var(--color-heading);
+      margin-bottom: 1rem;
+    }
+
+    .c-social-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .c-social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      color: var(--color-text);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .c-social-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .c-social-btn.fb:hover {
+      background: #1877F2;
+      border-color: #1877F2;
+      color: white;
+    }
+
+    .c-social-btn.tw:hover {
+      background: #000;
+      border-color: #000;
+      color: white;
+    }
+
+    .c-social-btn.li:hover {
+      background: #0077B5;
+      border-color: #0077B5;
+      color: white;
+    }
+
+    .c-social-btn.ig:hover {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      border-color: transparent;
+      color: white;
+    }
+
+    .c-social-btn.yt:hover {
+      background: #FF0000;
+      border-color: #FF0000;
+      color: white;
+    }
+
+    /* Map Section */
+    .c-map-section {
+      padding: 0 0 100px;
+      background: var(--color-bg);
+    }
+
+    .c-map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--color-border);
+      height: 400px;
+    }
+
+    .c-map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      filter: grayscale(20%);
+    }
+
+    [data-theme="dark"] .c-map-wrap iframe {
+      filter: invert(90%) hue-rotate(180deg) grayscale(20%);
+    }
+
+    /* FAQ */
+    .c-faq {
+      padding: 100px 0;
+      background: var(--color-surface);
+    }
+
+    .c-faq-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .c-faq-left h2 {
+      font-size: 2.25rem;
+      color: var(--color-heading);
+      margin-bottom: 1rem;
+    }
+
+    .c-faq-left p {
+      color: var(--color-text-light);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--color-bg);
+      transition: border-color 0.2s;
+    }
+
+    .faq-item:hover {
+      border-color: var(--color-primary);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      gap: 1rem;
+    }
+
+    .faq-question h4 {
+      font-size: 1rem;
+      color: var(--color-heading);
+      margin: 0;
+    }
+
+    .faq-chevron {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      color: var(--color-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease-out, padding 0.3s;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 1.5rem 1.25rem;
+    }
+
+    .faq-answer p {
+      color: var(--color-text-light);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* CTA */
+    .c-cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--color-primary) 0%, #7C3AED 100%);
+      text-align: center;
+    }
+
+    .c-cta h2 {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .c-cta p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .c-cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--color-primary);
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .c-hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .c-hero-visual {
+        order: -1;
+      }
+
+      .c-hero-img-wrap img {
+        height: 300px;
+      }
+
+      .c-hero p {
+        max-width: 100%;
+      }
+
+      .c-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .c-form-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .c-faq-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .c-hero {
+        padding: 70px 0 60px;
+      }
+
+      .c-options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .c-form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .c-form-card {
+        padding: 1.75rem;
+      }
+
+      .c-hero h1 {
+        font-size: 2.25rem;
+      }
+    }
+
+    /* Requested responsive corrections */
+    .c-form-group select { width: 100%; max-width: calc(100% - 0.35rem); margin-right: 0.35rem; }
+    .c-form-card > h2 { text-align: center; }
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .c-hero-inner { text-align: center; }
+      .c-hero-content { margin: 0 auto; }
+      .c-hero p { margin-left: auto; margin-right: auto; }
+      .c-hero-actions { justify-content: center; }
+      .c-hero-breadcrumb { justify-content: center; }
+      .c-hero-badge { justify-content: center; }
+    }
+    @media (max-width: 767px) {
+      .c-hero-inner { text-align: center; }
+      .c-hero-content { margin: 0 auto; }
+      .c-hero p { margin-left:auto; margin-right:auto; }
+      .c-hero-actions { justify-content:center; }
+      .c-hero-breadcrumb { justify-content:center; }
+      .c-hero-badge { justify-content:center; }
+      .c-options-grid { justify-items: center; }
+      .c-option-card { width: 100%; max-width: 420px; text-align:center; }
+      .c-opt-icon { margin-left:auto; margin-right:auto; }
+      .c-form-group select { max-width: 100%; margin-right: 0; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+        ShiftFlow
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home 1</a></li>
+        <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="features.html" class="nav-link">Features</a></li>
+        <li><a href="industries.html" class="nav-link">Industries</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
+          </svg>
+        </button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== 1. HERO SECTION ===== -->
+  <section class="c-hero">
+    <div class="container">
+      <div class="c-hero-inner">
+        <div>
+
+          <div class="c-hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3.02a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.18a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.9v2.02z" />
+            </svg>
+            We reply within 2 hours
+          </div>
+          <h1>Let's make <span>scheduling</span> easier together.</h1>
+          <p>Whether you're looking for a live demo, need technical support, or want to explore a partnership — our team
+            is ready to help you succeed.</p>
+
+        </div>
+
+        <div class="c-hero-visual">
+          <div class="c-hero-img-wrap">
+            <img src="assets/images/contact-hero.jpg" alt="Friendly support team ready to help" loading="lazy">
+            <div class="c-hero-img-overlay"></div>
+            <div class="c-hero-img-badge">
+              <div class="badge-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3.02a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.18a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.9v2.02z" />
+                </svg>
+              </div>
+              <div>
+                <strong>24/7 Customer Support</strong>
+                <span>Average response time: &lt; 2 hours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. CONTACT OPTIONS ===== -->
+  <section class="c-options">
+    <div class="container">
+      <div class="section-header center" style="margin-bottom: 3rem;">
+        <span class="section-tag">Contact Options</span>
+        <h2 class="section-title">Choose how to reach us</h2>
+        <p class="section-subtitle">Pick the team that fits your need — we'll get back to you fast.</p>
+      </div>
+      <div class="c-options-grid">
+        <div class="c-option-card">
+          <div class="c-opt-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+          </div>
+          <h3>Sales</h3>
+          <p>Talk to our experts about plans, pricing, and enterprise solutions tailored to your team.</p>
+          <a href="mailto:sales@shiftflow.com" class="opt-email">sales@shiftflow.com</a>
+          <p class="opt-hours">Mon–Fri, 9am–6pm PST</p>
+        </div>
+        <div class="c-option-card">
+          <div class="c-opt-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01" />
+            </svg>
+          </div>
+          <h3>Customer Support</h3>
+          <p>Stuck on something? Our dedicated support team is here to help resolve any issues quickly.</p>
+          <a href="mailto:support@shiftflow.com" class="opt-email">support@shiftflow.com</a>
+          <p class="opt-hours">Available 24/7</p>
+        </div>
+        <div class="c-option-card">
+          <div class="c-opt-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+            </svg>
+          </div>
+          <h3>Partnerships</h3>
+          <p>Interested in integrating with or promoting ShiftFlow? Let's build something great together.</p>
+          <a href="mailto:partners@shiftflow.com" class="opt-email">partners@shiftflow.com</a>
+          <p class="opt-hours">Mon–Fri, 9am–5pm PST</p>
+        </div>
+        <div class="c-option-card">
+          <div class="c-opt-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </div>
+          <h3>General Enquiries</h3>
+          <p>Have a question that doesn't fit the other categories? We'll make sure it gets to the right person.</p>
+          <a href="mailto:hello@shiftflow.com" class="opt-email">hello@shiftflow.com</a>
+          <p class="opt-hours">Mon–Fri, 9am–6pm PST</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. CONTACT FORM + OFFICE INFO ===== -->
+  <section class="c-form-section" id="contact-form">
+    <div class="container">
+      <div class="c-form-grid">
+        <!-- Form -->
+        <div class="c-form-card">
+          <h2>Send us a message</h2>
+          <p class="form-desc">Fill out the form below and we'll get back to you within 2 business hours.</p>
+          <form class="c-form" id="contactForm" novalidate>
+            <div class="c-form-row">
+              <div class="c-form-group">
+                <label for="c-name">Full Name</label>
+                <input type="text" id="c-name" placeholder="John Doe" required>
+              </div>
+              <div class="c-form-group">
+                <label for="c-email">Work Email</label>
+                <input type="email" id="c-email" placeholder="john@company.com" required>
+              </div>
+            </div>
+            <div class="c-form-row">
+              <div class="c-form-group">
+                <label for="c-company">Company</label>
+                <input type="text" id="c-company" placeholder="Acme Corp">
+              </div>
+              <div class="c-form-group">
+                <label for="c-phone">Phone Number</label>
+                <input type="tel" id="c-phone" placeholder="+1 (555) 000-0000">
+              </div>
+            </div>
+            <div class="c-form-group">
+              <label for="c-subject">Subject</label>
+              <select id="c-subject">
+                <option value="">Select a subject...</option>
+                <option value="demo">Request a Demo</option>
+                <option value="sales">Sales Inquiry</option>
+                <option value="support">Technical Support</option>
+                <option value="trial">Free Trial</option>
+                <option value="billing">Billing Question</option>
+                <option value="partnership">Partnership</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="c-form-group">
+              <label for="c-message">Message</label>
+              <textarea id="c-message" placeholder="How can we help you today?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;">
+              Send Message &rarr;
+            </button>
+          </form>
+        </div>
+
+        <!-- Office Info Sidebar -->
+        <div class="c-info-sidebar">
+          <div class="c-info-card">
+            <h3>Our Office</h3>
+            <div class="c-info-item">
+              <div class="c-info-item-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="c-info-item-text">
+                <strong>Location</strong>
+                <span>1000 Tech Avenue, Suite 400<br>Seattle, WA 98101<br>United States</span>
+              </div>
+            </div>
+            <div class="c-info-item">
+              <div class="c-info-item-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="c-info-item-text">
+                <strong>Email</strong>
+                <span>hello@shiftflow.com<br>support@shiftflow.com</span>
+              </div>
+            </div>
+            <div class="c-info-item">
+              <div class="c-info-item-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3.02a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.18a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.9v2.02z" />
+                </svg>
+              </div>
+              <div class="c-info-item-text">
+                <strong>Phone</strong>
+                <span>1-800-555-0198</span>
+              </div>
+            </div>
+            <div class="c-info-item">
+              <div class="c-info-item-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div class="c-info-item-text">
+                <strong>Business Hours</strong>
+                <span>Mon–Fri: 9am–6pm PST<br>Support: Available 24/7</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="c-social-card">
+            <h4>Follow Us</h4>
+            <div class="c-social-row">
+              <a href="#" class="c-social-btn fb" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                </svg>
+              </a>
+              <a href="#" class="c-social-btn tw" aria-label="Twitter / X">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                </svg>
+              </a>
+              <a href="#" class="c-social-btn li" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <a href="#" class="c-social-btn ig" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+              <a href="#" class="c-social-btn yt" aria-label="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                  <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. GOOGLE MAP ===== -->
+  <section class="c-map-section">
+    <div class="container">
+      <div class="section-header center" style="margin-bottom: 2.5rem;">
+        <h2 class="section-title">Find Us</h2>
+        <p class="section-subtitle">We're based in Seattle, WA. Come say hello!</p>
+      </div>
+      <div class="c-map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2690.017893427484!2d-122.33559672344696!3d47.60620751072136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549013993b3b2789%3A0x2e28a55c8f2b5038!2sSeattle%2C%20WA%2098101!5e0!3m2!1sen!2sus!4v1718000000000!5m2!1sen!2sus"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="ShiftFlow Office Location">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. FAQ ===== -->
+  <section class="c-faq" id="faq">
+    <div class="container">
+      <div class="c-faq-inner">
+        <div class="c-faq-left">
+          <span class="section-tag">FAQ</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>Quick answers to the questions we hear most. Still have questions? We're happy to chat.</p>
+          <a href="#contact-form" class="btn btn-primary">Ask a Question</a>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item active">
+            <div class="faq-question">
+              <h4>Can I try ShiftFlow before buying?</h4>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-answer">
+              <p>Yes! We offer a fully-featured 14-day free trial — no credit card required. You can start setting up
+                schedules and inviting team members immediately after signing up.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>How do I book a demo?</h4>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-answer">
+              <p>Just fill out the contact form above and select "Request a Demo" as your subject. A member of our team
+                will reach out within 2 hours to schedule a personalized walkthrough.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>How does pricing work?</h4>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-answer">
+              <p>Our pricing is based on a flat fee per location plus a small per-active-employee fee. We offer both
+                monthly and annual billing, with significant discounts for annual commitments.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Do you offer implementation support?</h4>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-answer">
+              <p>Absolutely. Every new account receives dedicated onboarding support. Enterprise plans include a
+                dedicated Customer Success Manager who guides your entire rollout.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Does ShiftFlow integrate with my existing tools?</h4>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-answer">
+              <p>Yes! We integrate with major POS systems (Toast, Square, Clover) and Payroll providers (ADP, Gusto,
+                QuickBooks). Check our integrations page for the full list of 50+ integrations.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>How fast is your customer support?</h4>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            <div class="faq-answer">
+              <p>Our support team is available 24/7. Average first-response time is under 2 hours via email, and under 5
+                minutes via live chat during business hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. CTA ===== -->
+  <section class="c-cta">
+    <div class="container">
+      <h2>Ready to see ShiftFlow in action?</h2>
+      <p>Join 10,000+ businesses that are scheduling smarter every day.</p>
+      <div class="c-cta-actions">
+        <a href="signup.html" class="btn-white">Start Free Trial &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <a href="index.html" class="brand">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            ShiftFlow
+          </a>
+          <p class="footer-desc">Empowering hourly teams to do their best work through intelligent scheduling and
+            workforce management.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                <circle cx="4" cy="4" r="2" />
+              </svg></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="features.html">Scheduling</a></li>
+            <li><a href="#">Time &amp; Attendance</a></li>
+            <li><a href="#">Team Communication</a></li>
+            <li><a href="#">Labor Forecasting</a></li>
+            <li><a href="#">Integrations</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="industries.html">Restaurants</a></li>
+            <li><a href="#">Retail</a></li>
+            <li><a href="#">Healthcare</a></li>
+            <li><a href="#">Hospitality</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShiftFlow Inc. All rights reserved.</p>
+      </div>
+    </div>
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
+    </button>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    // Scroll to Top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 300);
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile Menu
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileBtn) mobileBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

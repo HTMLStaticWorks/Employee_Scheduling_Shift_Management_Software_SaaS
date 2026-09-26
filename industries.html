@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industries | ShiftFlow — Built for Every Workforce</title>
+  <meta name="description"
+    content="Discover how ShiftFlow solves unique workforce scheduling challenges across restaurants, retail, healthcare, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/industries.css">
+  <style>
+    /* ========== INDUSTRIES PAGE STYLES ========== */
+
+    /* Hero Section */
+    .c-hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(135deg, #f8faff 0%, #eef2ff 50%, #f0fdf4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .c-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f1f15 100%);
+    }
+
+    .c-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .c-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .c-hero-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .c-hero-breadcrumb a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .c-hero-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .c-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--color-heading);
+      margin-bottom: 1.5rem;
+    }
+
+    .c-hero h1 span {
+      color: var(--color-primary);
+    }
+
+    .c-hero p {
+      font-size: 1.125rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .c-hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Hero Image */
+    .c-hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .visual-stack {
+      position: relative;
+      width: 100%;
+      height: 420px;
+    }
+
+    .img-back {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      opacity: 0.9;
+    }
+
+    .img-front {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 75%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      border: 4px solid var(--color-surface);
+      z-index: 2;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: var(--color-surface);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-lg);
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--color-heading);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 3;
+    }
+
+    .floating-badge.top-right {
+      top: -20px;
+      right: 10%;
+    }
+
+    .floating-badge.bottom-left {
+      bottom: -20px;
+      left: 10%;
+    }
+
+    /* Industry Cards */
+    .industry-cards {
+      padding: 100px 0;
+      background: var(--color-surface);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .ind-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ind-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+    }
+
+    .ind-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .ind-card-body {
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ind-card-body h3 {
+      font-size: 1.25rem;
+      color: var(--color-heading);
+      margin-bottom: 1rem;
+    }
+
+    .ind-card-body p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .ind-card-body strong {
+      color: var(--color-heading);
+      font-weight: 600;
+    }
+
+    /* Challenges Section */
+    .challenges-section {
+      padding: 100px 0;
+      background: var(--color-bg);
+    }
+
+    .challenges-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .challenges-text h2 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      color: var(--color-heading);
+    }
+
+    .problem-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .problem-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .prob-icon {
+      font-size: 1.5rem;
+      background: var(--color-surface);
+      padding: 0.75rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .prob-details h4 {
+      font-size: 1.1rem;
+      color: var(--color-heading);
+      margin-bottom: 0.25rem;
+    }
+
+    .prob-details p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    .mobile-mockup {
+      width: 320px;
+      margin: 0 auto;
+      background: var(--color-surface);
+      border-radius: 30px;
+      box-shadow: var(--shadow-xl);
+      border: 8px solid #cbd5e1;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    [data-theme="dark"] .mobile-mockup {
+      border-color: #334155;
+    }
+
+    .mob-header {
+      background: var(--color-primary);
+      color: white;
+      padding: 1.25rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .mob-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--color-bg);
+    }
+
+    .swap-details {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .swap-details div {
+      font-size: 0.85rem;
+      color: var(--color-text);
+    }
+
+    .shift-time {
+      color: var(--color-text-light);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .swap-icon {
+      text-align: center;
+      color: var(--color-primary);
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+
+    .mob-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .mob-btn {
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .mob-btn:hover {
+      opacity: 0.8;
+    }
+
+    .mob-btn.deny {
+      background: rgba(239, 68, 68, 0.1);
+      color: #EF4444;
+    }
+
+    .mob-btn.approve {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    /* Results */
+    .results-section {
+      padding: 100px 0;
+      background: var(--color-primary);
+      color: white;
+      text-align: center;
+    }
+
+    .results-section h2 {
+      font-size: 2.25rem;
+      margin-bottom: 3rem;
+      color: white;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .res-card {
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(10px);
+    }
+
+    .res-num {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .res-card p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* CTA */
+    .c-cta {
+      padding: 100px 0;
+      background: var(--color-surface);
+      text-align: center;
+    }
+
+    .c-cta h2 {
+      font-size: 2.5rem;
+      color: var(--color-heading);
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+
+      .c-hero-inner,
+      .challenges-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .c-hero {
+        text-align: center;
+      }
+
+      .c-hero-visual {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .visual-stack {
+        height: 300px;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .img-back {
+        width: 100%;
+        height: 300px;
+        left: 0;
+        right: auto;
+      }
+
+      .c-hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* Requested responsive corrections */
+    @media (min-width: 1025px) {
+      .c-hero {
+        padding: 80px 0 90px;
+      }
+
+      .c-hero-visual {
+        min-height: 560px;
+      }
+
+      .visual-stack {
+        height: 560px;
+      }
+
+      .img-back,
+      .img-front {
+        height: 100%;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .c-hero-inner {
+        text-align: center;
+        justify-items: center;
+      }
+
+      .c-hero-inner>div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .c-hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .c-hero-actions {
+        justify-content: center;
+      }
+
+      .c-hero-visual {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .visual-stack {
+        width: min(100%, 620px);
+        height: 420px;
+      }
+
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767px) {
+      .c-hero {
+        padding: 70px 0 70px;
+      }
+
+      .c-hero-inner {
+        gap: 2.5rem;
+      }
+
+      .visual-stack {
+        width: 100%;
+        height: 330px;
+      }
+
+      .img-back,
+      .img-front {
+        width: 82%;
+        height: 88%;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .results-section h2 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+        ShiftFlow
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home 1</a></li>
+        <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="features.html" class="nav-link">Features</a></li>
+        <li><a href="industries.html" class="nav-link active">Industries</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
+          </svg>
+        </button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero Section -->
+  <section class="c-hero">
+    <div class="container">
+      <div class="c-hero-inner">
+        <div>
+
+          <h1>Scheduling built for <span>every kind of workforce</span></h1>
+          <p>Different industries have different rules. ShiftFlow adapts to your unique operational needs, compliance
+            laws, and staffing structures.</p>
+
+        </div>
+        <div class="c-hero-visual">
+          <div class="visual-stack">
+            <img src="assets/images/industry-hero.jpg" alt="Diverse workforce teams" class="img-back">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Industry Solutions -->
+  <section class="industry-cards">
+    <div class="container">
+      <div class="section-header center" style="margin-bottom: 3rem;">
+        <h2 class="section-title">Solutions tailored for your industry</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="ind-card">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop"
+            alt="Restaurant staff" class="ind-card-img">
+          <div class="ind-card-body">
+            <h3>Restaurants &amp; Food Service</h3>
+            <p><strong>Challenge:</strong> Unpredictable rushes, tip tracking, and complex front/back of house
+              rotations.</p>
+            <p><strong>Solution:</strong> POS integration for demand forecasting, seamless shift trades, and role-based
+              permissions.</p>
+          </div>
+        </div>
+        <div class="ind-card">
+          <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=600&auto=format&fit=crop"
+            alt="Retail workers" class="ind-card-img">
+          <div class="ind-card-body">
+            <h3>Retail</h3>
+            <p><strong>Challenge:</strong> Seasonal hiring spikes, fluctuating foot traffic, and strict labor budgets.
+            </p>
+            <p><strong>Solution:</strong> Multi-location scheduling, labor vs. sales tracking, and mass shift
+              unassignment features.</p>
+          </div>
+        </div>
+        <div class="ind-card">
+          <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=600&auto=format&fit=crop"
+            alt="Healthcare professionals" class="ind-card-img">
+          <div class="ind-card-body">
+            <h3>Healthcare</h3>
+            <p><strong>Challenge:</strong> Strict nurse-to-patient ratios, certification tracking, and 24/7 coverage.
+            </p>
+            <p><strong>Solution:</strong> Certification expiration alerts, strict ratio constraints, and fatigue
+              management tools.</p>
+          </div>
+        </div>
+        <div class="ind-card">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop"
+            alt="Hotel staff" class="ind-card-img">
+          <div class="ind-card-body">
+            <h3>Hospitality</h3>
+            <p><strong>Challenge:</strong> Large cross-functional teams spanning housekeeping, front desk, and banquets.
+            </p>
+            <p><strong>Solution:</strong> Departmental sub-schedules, cross-training tags, and centralized
+              communication.</p>
+          </div>
+        </div>
+        <div class="ind-card">
+          <img src="assets/images/industries.jpg" alt="Logistics workers" class="ind-card-img">
+          <div class="ind-card-body">
+            <h3>Logistics &amp; Warehousing</h3>
+            <p><strong>Challenge:</strong> High turnover, rigid shifts, and reliance on agency or temp workers.</p>
+            <p><strong>Solution:</strong> Open shift claiming, overtime prevention warnings, and mass communication.</p>
+          </div>
+        </div>
+        <div class="ind-card">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=600&auto=format&fit=crop"
+            alt="Professional services" class="ind-card-img">
+          <div class="ind-card-body">
+            <h3>Professional Services</h3>
+            <p><strong>Challenge:</strong> Project-based billing, client-site dispatching, and varying pay rates.</p>
+            <p><strong>Solution:</strong> Location-based scheduling, varying rate pay-rules, and mobile clock-in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Workforce Challenges -->
+  <section class="challenges-section">
+    <div class="container challenges-container">
+      <div class="challenges-text">
+        <h2>We solve the problems that slow you down.</h2>
+        <div class="problem-list">
+          <div class="problem-item">
+            <div class="prob-icon">🔄</div>
+            <div class="prob-details">
+              <h4>Last-minute shift changes</h4>
+              <p>ShiftFlow allows staff to request swaps via mobile, updating the schedule the moment you approve.</p>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="prob-icon">📅</div>
+            <div class="prob-details">
+              <h4>Employee Availability</h4>
+              <p>No more text messages. Staff submit availability in the app; the scheduler blocks out unavailable
+                times.</p>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="prob-icon">⚠️</div>
+            <div class="prob-details">
+              <h4>Overtime Management</h4>
+              <p>Visual warnings appear before you publish if a schedule pushes someone into overtime.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="challenges-visual">
+        <div class="mobile-mockup">
+          <div class="mob-header">Shift Swap Request</div>
+          <div class="mob-body">
+            <div class="swap-details">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop"
+                class="avatar" alt="User">
+              <div>
+                <strong>Sarah J.</strong> wants to swap
+                <div class="shift-time">Fri, Oct 20 • 9am - 5pm</div>
+              </div>
+            </div>
+            <div class="swap-icon">&uarr;&darr;</div>
+            <div class="swap-details">
+              <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=100&auto=format&fit=crop"
+                class="avatar" alt="User">
+              <div>
+                <strong>Mike T.</strong> accepted
+                <div class="shift-time">Sat, Oct 21 • 12pm - 8pm</div>
+              </div>
+            </div>
+            <div class="mob-actions">
+              <button class="mob-btn deny">Deny</button>
+              <button class="mob-btn approve">Approve</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Industry Results -->
+  <section class="results-section">
+    <div class="container">
+      <h2>Proven Results Across Sectors</h2>
+      <div class="results-grid">
+        <div class="res-card">
+          <span class="res-num">22%</span>
+          <p>Reduction in labor costs</p>
+        </div>
+        <div class="res-card">
+          <span class="res-num">8hr</span>
+          <p>Saved per manager/week</p>
+        </div>
+        <div class="res-card">
+          <span class="res-num">40%</span>
+          <p>Fewer missed shifts</p>
+        </div>
+        <div class="res-card">
+          <span class="res-num">95%</span>
+          <p>Employee adoption rate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <section class="c-cta">
+    <div class="container">
+      <h2>Ready to transform your scheduling?</h2>
+      <a href="signup.html" class="btn btn-primary btn-large">Start Free Trial</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <a href="index.html" class="brand">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            ShiftFlow
+          </a>
+          <p class="footer-desc">Empowering hourly teams to do their best work through intelligent scheduling and
+            workforce management.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="features.html">Scheduling</a></li>
+            <li><a href="#">Time &amp; Attendance</a></li>
+            <li><a href="#">Team Communication</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="industries.html">Restaurants</a></li>
+            <li><a href="#">Retail</a></li>
+            <li><a href="#">Healthcare</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShiftFlow Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

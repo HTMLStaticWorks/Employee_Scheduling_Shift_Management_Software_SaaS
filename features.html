@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features | ShiftFlow — Intelligent Workforce Management</title>
+  <meta name="description"
+    content="Discover everything you need to run better shifts. Automated scheduling, operations intelligence, and team collaboration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/features.css">
+  <style>
+    /* ========== FEATURES PAGE STYLES ========== */
+
+    /* Hero Section */
+    .c-hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(135deg, #f8faff 0%, #eef2ff 50%, #f0fdf4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .c-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f1f15 100%);
+    }
+
+    .c-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .c-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .c-hero-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .c-hero-breadcrumb a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .c-hero-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .c-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--color-heading);
+      margin-bottom: 1.5rem;
+    }
+
+    .c-hero h1 span {
+      color: var(--color-primary);
+    }
+
+    .c-hero p {
+      font-size: 1.125rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .c-hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .c-hero-visual {
+      position: relative;
+    }
+
+    /* Mockup */
+    .mockup-window {
+      width: 100%;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+      transition: transform var(--transition-normal);
+    }
+
+    .mockup-window:hover {
+      transform: perspective(1000px) rotateY(0) rotateX(0);
+    }
+
+    .mockup-top {
+      background: var(--color-bg);
+      padding: 1rem;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      gap: 8px;
+    }
+
+    .mockup-top .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .mockup-top .dot:nth-child(1) {
+      background: #FF5F56;
+    }
+
+    .mockup-top .dot:nth-child(2) {
+      background: #FFBD2E;
+    }
+
+    .mockup-top .dot:nth-child(3) {
+      background: #27C93F;
+    }
+
+    .mockup-content {
+      display: flex;
+      height: 280px;
+    }
+
+    .mockup-sidebar {
+      width: 60px;
+      background: var(--color-bg);
+      border-right: 1px solid var(--color-border);
+    }
+
+    .mockup-main {
+      flex: 1;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mockup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .m-title {
+      width: 120px;
+      height: 20px;
+      background: var(--color-border);
+      border-radius: var(--radius-sm);
+    }
+
+    .m-actions {
+      width: 80px;
+      height: 30px;
+      background: var(--color-primary);
+      border-radius: var(--radius-sm);
+    }
+
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .m-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+    }
+
+    .m-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .m-row {
+      height: 30px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Core Features */
+    .core-features {
+      padding: 100px 0;
+      background: var(--color-surface);
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .c-feature-card {
+      padding: 2rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: all 0.2s;
+    }
+
+    .c-feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary);
+    }
+
+    .c-icon {
+      width: 52px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      margin: 0 auto 1.25rem;
+    }
+
+    .c-icon svg {
+      width: 32px;
+      height: 32px;
+      display: block;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .c-feature-card h3 {
+      font-size: 1.25rem;
+      color: var(--color-heading);
+      margin-bottom: 0.75rem;
+    }
+
+    .c-feature-card p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* Feature Deep Dive */
+    .feat-deep-dive {
+      padding: 100px 0;
+      background: var(--color-bg);
+    }
+
+    .deep-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+
+    .deep-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .deep-row.reverse .deep-text {
+      order: 2;
+    }
+
+    .deep-row.reverse .deep-visual {
+      order: 1;
+    }
+
+    .deep-text h2 {
+      font-size: 2rem;
+      color: var(--color-heading);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .deep-text p {
+      font-size: 1.1rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .feat-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .feat-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--color-text);
+      font-weight: 500;
+    }
+
+    .feat-list li svg {
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .deep-visual img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--color-border);
+    }
+
+    /* CTA */
+    .c-cta {
+      padding: 100px 0;
+      background: var(--color-primary);
+      text-align: center;
+      color: white;
+    }
+
+    .c-cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: white;
+      font-weight: 800;
+    }
+
+    .c-cta .btn {
+      background: white;
+      color: var(--color-primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .c-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .deep-row {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .deep-row.reverse .deep-text,
+      .deep-row.reverse .deep-visual {
+        order: initial;
+      }
+    }
+
+    /* ===== Requested responsive corrections ===== */
+    .features-hero-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--color-border);
+    }
+
+    .core-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .c-feature-card {
+      text-align: center;
+    }
+
+    @media (max-width:1024px) {
+      .c-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+
+      .c-hero-inner>div:first-child {
+        order: 2;
+      }
+
+      .c-hero-visual {
+        order: 1;
+        width: 100%;
+      }
+
+      .c-hero p {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .c-hero-actions {
+        justify-content: center;
+      }
+
+      .features-hero-img {
+        height: 300px;
+      }
+
+      .core-grid {
+        grid-template-columns: repeat(2, minmax(0, 280px));
+        justify-content: center;
+      }
+
+      .core-grid .c-feature-card:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 280px;
+      }
+    }
+
+    @media (max-width:640px) {
+      .features-hero-img {
+        height: 260px;
+      }
+
+      .core-grid {
+        grid-template-columns: 1fr;
+        justify-content: stretch;
+      }
+
+      .core-grid .c-feature-card:last-child {
+        grid-column: auto;
+        width: 100%;
+      }
+
+      .c-feature-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+        ShiftFlow
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home 1</a></li>
+        <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="features.html" class="nav-link active">Features</a></li>
+        <li><a href="industries.html" class="nav-link">Industries</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
+          </svg>
+        </button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero Section -->
+  <section class="c-hero">
+    <div class="container">
+      <div class="c-hero-inner">
+        <div>
+
+          <h1>Everything you need to <span>run better shifts</span></h1>
+          <p>From automated schedule generation to real-time labor intelligence, ShiftFlow gives your managers the tools
+            to build perfect schedules in minutes.</p>
+
+        </div>
+        <div class="c-hero-visual">
+          <img src="assets/images/feature-hero.jpg" alt="ShiftFlow workforce scheduling dashboard"
+            class="features-hero-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Core Features -->
+  <section class="core-features">
+    <div class="container">
+      <div class="section-header center">
+        <h2 class="section-title">Core Scheduling Features</h2>
+        <p class="section-subtitle">The essential tools you need to organize your team.</p>
+      </div>
+      <div class="core-grid">
+        <div class="c-feature-card">
+          <div class="c-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="17" rx="2" />
+              <path d="M8 2v4M16 2v4M3 9h18" />
+              <path d="m9 15 2 2 4-4" />
+            </svg>
+          </div>
+          <h3>Auto-Scheduling</h3>
+          <p>Generate optimized schedules based on historical data, availability, and labor laws with one click.</p>
+        </div>
+        <div class="c-feature-card">
+          <div class="c-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="6" y="2.5" width="12" height="19" rx="2" />
+              <path d="M10 5h4M10 18.5h4" />
+              <circle cx="12" cy="15" r="1" />
+            </svg>
+          </div>
+          <h3>Mobile App</h3>
+          <p>Give your staff a beautiful mobile experience for checking shifts, clocking in, and requesting swaps.</p>
+        </div>
+        <div class="c-feature-card">
+          <div class="c-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20" />
+              <circle cx="9.5" cy="7.5" r="3.5" />
+              <path d="M17 11a3.5 3.5 0 1 0-1.2-6.8M21 20v-1.5a4 4 0 0 0-3-3.9" />
+            </svg>
+          </div>
+          <h3>Team Communication</h3>
+          <p>Built-in messaging allows managers to broadcast updates or chat with staff without using personal phone
+            numbers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Deep Dive -->
+  <section class="feat-deep-dive">
+    <div class="container">
+      <div class="deep-row">
+        <div class="deep-text">
+          <h2>Drag and drop your way to the perfect week</h2>
+          <p>Building a schedule shouldn't require a spreadsheet degree. Our visual builder makes assigning shifts as
+            easy as clicking and dragging.</p>
+          <ul class="feat-list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> See labor costs update in real-time as you build</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Auto-flag overtime and compliance violations</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Save templates for your most common weeks</li>
+          </ul>
+        </div>
+        <div class="deep-visual">
+          <img src="assets/images/feature1.jpg" alt="Dashboard data visualization">
+        </div>
+      </div>
+
+      <div class="deep-row reverse">
+        <div class="deep-text">
+          <h2>Empower your team with self-service</h2>
+          <p>Stop playing phone tag to find coverage. Staff can manage their own availability and trade shifts directly
+            from their phones.</p>
+          <ul class="feat-list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Shift claiming and swapping with manager approval workflows</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Time-off requests and PTO tracking</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Push notifications for new schedules and shift changes</li>
+          </ul>
+        </div>
+        <div class="deep-visual">
+          <img src="assets/images/feature2.jpg" alt="Mobile app features">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CTA -->
+  <section class="c-cta">
+    <div class="container">
+      <h2>Experience better scheduling today</h2>
+      <a href="signup.html" class="btn btn-large">Start your 14-day free trial</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <a href="index.html" class="brand">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            ShiftFlow
+          </a>
+          <p class="footer-desc">Empowering hourly teams to do their best work through intelligent scheduling and
+            workforce management.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="features.html">Scheduling</a></li>
+            <li><a href="#">Time &amp; Attendance</a></li>
+            <li><a href="#">Team Communication</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="industries.html">Restaurants</a></li>
+            <li><a href="#">Retail</a></li>
+            <li><a href="#">Healthcare</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ShiftFlow Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

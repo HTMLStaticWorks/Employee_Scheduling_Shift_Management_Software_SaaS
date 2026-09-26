@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | ShiftFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Dashboard Specific Styles */
+    :root {
+      --sidebar-width: 260px;
+    }
+
+    body {
+      background: var(--color-bg);
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar */
+    .dashboard-sidebar {
+      width: var(--sidebar-width);
+      background: var(--color-surface);
+      border-right: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: auto;
+      left: 0;
+      z-index: 50;
+      transition: transform var(--transition-normal);
+    }
+
+    .sidebar-header {
+      padding: var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow-y: auto;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      color: var(--color-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--color-primary);
+    }
+
+    .sidebar-footer {
+      padding: var(--space-4);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .logout-link {
+      color: #ef4444 !important;
+    }
+
+    .logout-link:hover {
+      background: #fee2e2 !important;
+    }
+
+    /* Main Content */
+    .dashboard-main {
+      flex: 1;
+      margin-left: var(--sidebar-width);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: margin var(--transition-normal);
+    }
+
+    .dashboard-header {
+      height: 70px;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-6);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .welcome-text {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-heading);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mobile-brand {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--color-heading);
+      cursor: pointer;
+    }
+
+    .mobile-close-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--color-heading);
+      cursor: pointer;
+    }
+
+    .desktop-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mobile-actions {
+      display: none;
+    }
+
+    .profile-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+    }
+
+    .dashboard-content {
+      padding: var(--space-6);
+      flex: 1;
+    }
+
+    .content-section {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Cards for Overview */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+
+    .stat-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+    }
+
+    .stat-card h3 {
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-heading);
+    }
+
+    /* Responsive (Tablet & Mobile) */
+    @media (max-width: 991px) {
+      .dashboard-sidebar {
+        transform: translateX(100%);
+        left: auto;
+        right: 0;
+        border-left: 1px solid var(--color-border);
+        border-right: none;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .dashboard-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .dashboard-main {
+        margin-left: 0;
+      }
+
+      .header-right {
+        gap: 0.5rem;
+      }
+
+      .desktop-actions {
+        display: none;
+      }
+
+      .mobile-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--color-border);
+        margin-top: 1rem;
+      }
+
+      .mobile-actions-row {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .mobile-brand {
+        display: flex;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .mobile-close-toggle {
+        display: block;
+      }
+
+      .welcome-text {
+        display: none;
+      }
+
+      /* Keep left side logo, right side hamburger in header */
+      .dashboard-header {
+        padding: 0 var(--space-4);
+      }
+    }
+
+    /* Requested responsive corrections */
+    .dashboard-mobile-brand {
+      align-items: center;
+      gap: .5rem;
+      color: var(--color-primary);
+      font-family: var(--font-primary);
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .dashboard-mobile-brand .brand-icon {
+      width: 28px;
+      height: 28px;
+      color: var(--color-primary);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .table-responsive table {
+      min-width: 620px;
+    }
+
+    @media (min-width: 992px) {
+      .dashboard-mobile-brand {
+        display: none;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .schedule-cards {
+        grid-template-columns: repeat(2, minmax(280px, 1fr)) !important;
+        justify-content: center;
+      }
+
+      .schedule-cards>.stat-card:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - 1.25rem) / 2);
+      }
+
+      /* Tablet: center the third card in Time & Attendance and Employees */
+      #attendance .stat-grid,
+      #employees .stat-grid {
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+        justify-content: center;
+      }
+
+      #attendance .stat-grid>.stat-card:nth-child(3),
+      #employees .stat-grid>.stat-card:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - var(--space-4)) / 2);
+      }
+    }
+
+    @media (max-width: 991px) {
+      .dashboard-header {
+        position: sticky;
+      }
+
+      .dashboard-header .header-left {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .dashboard-mobile-brand {
+        display: flex;
+      }
+
+      .dashboard-header .header-right {
+        margin-left: auto;
+      }
+
+      .mobile-menu-toggle {
+        margin-left: .25rem;
+      }
+
+      .dashboard-sidebar .sidebar-header .brand {
+        display: none;
+      }
+
+      .dashboard-sidebar .sidebar-header {
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .dashboard-content {
+        padding: 1rem;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .dashboard-content>.content-section>div[style*="grid-template-columns: 2fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      .schedule-cards {
+        grid-template-columns: 1fr !important;
+      }
+
+      .schedule-cards>.stat-card:nth-child(3) {
+        grid-column: auto;
+        width: 100%;
+        justify-self: stretch;
+      }
+
+      .attendance-table-card {
+        overflow: hidden;
+      }
+
+      .table-responsive {
+        margin-right: 0;
+      }
+
+      #employees .stat-card>div[style*="display:flex; flex-direction:column"]>div {
+        width: 100%;
+      }
+
+      #employees .stat-card>div[style*="display:flex; flex-direction:column"]>div>span {
+        margin-left: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <aside class="dashboard-sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="brand" style="margin-right: auto; font-size: 1.5rem;">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round"
+          style="width:26px;height:26px;background:none;box-shadow:none;">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+        ShiftFlow
+      </a>
+      <button class="mobile-close-toggle" id="dashMenuClose">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-link active" data-target="overview">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+        </svg>
+        Overview
+      </a>
+      <a class="sidebar-link" data-target="schedules">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
+        Schedules
+      </a>
+      <a class="sidebar-link" data-target="attendance">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+        Time & Attendance
+      </a>
+      <a class="sidebar-link" data-target="employees">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+        Employees
+      </a>
+
+      <!-- Mobile extra actions injected here -->
+      <div class="mobile-actions">
+        <div class="mobile-actions-row">
+          <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
+            </svg>
+          </button>
+          <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+              <circle cx="12" cy="12" r="5" />
+              <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-actions-row">
+          <button class="profile-btn">JD</button> <span style="font-weight: 500;">John Doe</span>
+        </div>
+      </div>
+
+    </nav>
+    <div class="sidebar-footer">
+      <a href="index.html" class="sidebar-link logout-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+          <polyline points="16 17 21 12 16 7" />
+          <line x1="21" y1="12" x2="9" y2="12" />
+        </svg>
+        Logout
+      </a>
+    </div>
+  </aside>
+
+  <main class="dashboard-main">
+    <header class="dashboard-header">
+      <div class="header-left">
+        <a href="index.html" class="mobile-brand dashboard-mobile-brand">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+          <span>ShiftFlow</span>
+        </a>
+        <div class="welcome-text">👋 Welcome back, <strong>John!</strong></div>
+      </div>
+      <div class="header-right">
+        <button class="btn-icon" aria-label="Notifications" title="Notifications">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+        </button>
+
+        <div class="desktop-actions">
+          <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
+            </svg>
+          </button>
+          <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+              <circle cx="12" cy="12" r="5" />
+              <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            </svg>
+          </button>
+          <button class="profile-btn">JD</button>
+        </div>
+
+        <button class="mobile-menu-toggle" id="dashMenuToggle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="dashboard-content">
+
+      <!-- Overview Section -->
+      <div id="overview" class="content-section active">
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="margin:0;">Overview</h2>
+          <p style="color:var(--color-text-light); margin-top: 0.25rem;">Friday, 26 Sep 2026 — Week 39</p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <h3>Scheduled Hours</h3>
+            <div class="value">342h</div>
+            <p style="font-size:0.8rem; color: #10B981; margin-top: 0.5rem;">↑ 12% from last week</p>
+          </div>
+          <div class="stat-card">
+            <h3>Labor Cost</h3>
+            <div class="value">$4,250</div>
+            <p style="font-size:0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">Budget: $5,000</p>
+          </div>
+          <div class="stat-card">
+            <h3>Open Shifts</h3>
+            <div class="value">3</div>
+            <p style="font-size:0.8rem; color: var(--color-warning); margin-top: 0.5rem;">Needs assignment</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Employees</h3>
+            <div class="value">28</div>
+            <p style="font-size:0.8rem; color: var(--color-text-light); margin-top: 0.5rem;">2 on leave</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+          <div class="stat-card">
+            <h3 style="margin-bottom:1rem;">This Week's Schedule</h3>
+            <div style="display:grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; text-align:center;">
+              <div style="font-size:0.75rem; color: var(--color-text-light); font-weight:600;">Mon</div>
+              <div style="font-size:0.75rem; color: var(--color-text-light); font-weight:600;">Tue</div>
+              <div style="font-size:0.75rem; color: var(--color-text-light); font-weight:600;">Wed</div>
+              <div style="font-size:0.75rem; color: var(--color-text-light); font-weight:600;">Thu</div>
+              <div style="font-size:0.75rem; color: var(--color-primary); font-weight:700;">Fri</div>
+              <div style="font-size:0.75rem; color: var(--color-text-light); font-weight:600;">Sat</div>
+              <div style="font-size:0.75rem; color: var(--color-text-light); font-weight:600;">Sun</div>
+              <div
+                style="background:rgba(79,70,229,0.1); border-radius: 6px; padding: 0.5rem 0.25rem; font-size: 0.8rem; font-weight:600; color: var(--color-primary);">
+                8</div>
+              <div
+                style="background:rgba(79,70,229,0.1); border-radius: 6px; padding: 0.5rem 0.25rem; font-size: 0.8rem; font-weight:600; color: var(--color-primary);">
+                9</div>
+              <div
+                style="background:rgba(79,70,229,0.1); border-radius: 6px; padding: 0.5rem 0.25rem; font-size: 0.8rem; font-weight:600; color: var(--color-primary);">
+                7</div>
+              <div
+                style="background:rgba(79,70,229,0.1); border-radius: 6px; padding: 0.5rem 0.25rem; font-size: 0.8rem; font-weight:600; color: var(--color-primary);">
+                9</div>
+              <div
+                style="background:var(--color-primary); border-radius: 6px; padding: 0.5rem 0.25rem; font-size: 0.8rem; font-weight:700; color: white;">
+                8</div>
+              <div
+                style="background:rgba(79,70,229,0.05); border-radius: 6px; padding: 0.5rem 0.25rem; font-size: 0.8rem; color: var(--color-text-light);">
+                4</div>
+              <div
+                style="background:rgba(79,70,229,0.05); border-radius: 6px; padding: 0.5rem 0.25rem; font-size: 0.8rem; color: var(--color-text-light);">
+                0</div>
+            </div>
+            <p style="font-size:0.8rem; color: var(--color-text-light); margin-top: 1rem;">Numbers = staff scheduled per
+              day</p>
+          </div>
+          <div class="stat-card">
+            <h3 style="margin-bottom:1rem;">Quick Links</h3>
+            <div style="display:flex; flex-direction:column; gap: 0.75rem;">
+              <a href="features.html"
+                style="display:flex; align-items:center; gap:0.75rem; color: var(--color-text); text-decoration:none; padding: 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size:0.875rem; transition:all 0.2s;"
+                onmouseover="this.style.borderColor='var(--color-primary)'"
+                onmouseout="this.style.borderColor='var(--color-border)'">🗓 Features</a>
+              <a href="industries.html"
+                style="display:flex; align-items:center; gap:0.75rem; color: var(--color-text); text-decoration:none; padding: 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size:0.875rem; transition:all 0.2s;"
+                onmouseover="this.style.borderColor='var(--color-primary)'"
+                onmouseout="this.style.borderColor='var(--color-border)'">🏭 Industries</a>
+              <a href="contact.html"
+                style="display:flex; align-items:center; gap:0.75rem; color: var(--color-text); text-decoration:none; padding: 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size:0.875rem; transition:all 0.2s;"
+                onmouseover="this.style.borderColor='var(--color-primary)'"
+                onmouseout="this.style.borderColor='var(--color-border)'">📞 Contact Support</a>
+              <a href="about.html"
+                style="display:flex; align-items:center; gap:0.75rem; color: var(--color-text); text-decoration:none; padding: 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size:0.875rem; transition:all 0.2s;"
+                onmouseover="this.style.borderColor='var(--color-primary)'"
+                onmouseout="this.style.borderColor='var(--color-border)'">ℹ️ About Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedules Section -->
+      <div id="schedules" class="content-section">
+        <div
+          style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap:wrap; gap:1rem;">
+          <h2 style="margin:0;">Schedules</h2>
+          <button class="btn btn-primary" style="padding: 0.6rem 1.25rem;">+ New Schedule</button>
+        </div>
+        <div class="schedule-cards"
+          style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+          <div class="stat-card" style="border-left: 4px solid var(--color-primary);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <div>
+                <h3>Morning Shift</h3>
+                <p style="margin-top:0.35rem; font-size:0.875rem; color:var(--color-text-light);">6:00 AM – 2:00 PM</p>
+              </div>
+              <span
+                style="background:rgba(16,185,129,0.1); color:#10B981; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem; font-weight:600;">Active</span>
+            </div>
+            <p style="margin-top:0.75rem; font-size:0.85rem; color:var(--color-text-light);">👥 8 employees assigned</p>
+          </div>
+          <div class="stat-card" style="border-left: 4px solid var(--color-accent);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <div>
+                <h3>Afternoon Shift</h3>
+                <p style="margin-top:0.35rem; font-size:0.875rem; color:var(--color-text-light);">2:00 PM – 10:00 PM</p>
+              </div>
+              <span
+                style="background:rgba(16,185,129,0.1); color:#10B981; padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem; font-weight:600;">Active</span>
+            </div>
+            <p style="margin-top:0.75rem; font-size:0.85rem; color:var(--color-text-light);">👥 7 employees assigned</p>
+          </div>
+          <div class="stat-card" style="border-left: 4px solid var(--color-warning);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <div>
+                <h3>Night Shift</h3>
+                <p style="margin-top:0.35rem; font-size:0.875rem; color:var(--color-text-light);">10:00 PM – 6:00 AM</p>
+              </div>
+              <span
+                style="background:rgba(245,158,11,0.1); color:var(--color-warning); padding:0.2rem 0.6rem; border-radius:999px; font-size:0.75rem; font-weight:600;">3
+                Open</span>
+            </div>
+            <p style="margin-top:0.75rem; font-size:0.85rem; color:var(--color-text-light);">👥 4 of 7 assigned</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attendance Section -->
+      <div id="attendance" class="content-section">
+        <h2 style="margin-bottom:1.5rem;">Time &amp; Attendance</h2>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <h3>Clock-Ins Today</h3>
+            <div class="value">18</div>
+          </div>
+          <div class="stat-card">
+            <h3>On Break</h3>
+            <div class="value">4</div>
+          </div>
+          <div class="stat-card">
+            <h3>Late Arrivals</h3>
+            <div class="value">2</div>
+            <p style="font-size:0.8rem; color:var(--color-error); margin-top:0.5rem;">↑ 1 from yesterday</p>
+          </div>
+        </div>
+        <div class="stat-card attendance-table-card" style="margin-top:1.5rem;">
+          <h3 style="margin-bottom: 1rem;">Recent Clock Events</h3>
+          <div class="table-responsive">
+            <table style="width:100%; border-collapse: collapse; font-size:0.875rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--color-border); text-align:left;">
+                  <th style="padding: 0.6rem 0.75rem; color: var(--color-text-light); font-weight:600;">Employee</th>
+                  <th style="padding: 0.6rem 0.75rem; color: var(--color-text-light); font-weight:600;">Action</th>
+                  <th style="padding: 0.6rem 0.75rem; color: var(--color-text-light); font-weight:600;">Time</th>
+                  <th style="padding: 0.6rem 0.75rem; color: var(--color-text-light); font-weight:600;">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--color-border);">
+                  <td style="padding:0.6rem 0.75rem;">Sarah K.</td>
+                  <td style="padding:0.6rem 0.75rem;">Clock In</td>
+                  <td style="padding:0.6rem 0.75rem;">8:02 AM</td>
+                  <td style="padding:0.6rem 0.75rem;"><span style="color:#10B981; font-weight:600;">On Time</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border);">
+                  <td style="padding:0.6rem 0.75rem;">Mike T.</td>
+                  <td style="padding:0.6rem 0.75rem;">Clock In</td>
+                  <td style="padding:0.6rem 0.75rem;">8:18 AM</td>
+                  <td style="padding:0.6rem 0.75rem;"><span
+                      style="color:var(--color-warning); font-weight:600;">Late</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border);">
+                  <td style="padding:0.6rem 0.75rem;">Priya M.</td>
+                  <td style="padding:0.6rem 0.75rem;">Break Start</td>
+                  <td style="padding:0.6rem 0.75rem;">10:30 AM</td>
+                  <td style="padding:0.6rem 0.75rem;"><span style="color:var(--color-accent); font-weight:600;">On
+                      Break</span></td>
+                </tr>
+                <tr>
+                  <td style="padding:0.6rem 0.75rem;">James L.</td>
+                  <td style="padding:0.6rem 0.75rem;">Clock In</td>
+                  <td style="padding:0.6rem 0.75rem;">9:00 AM</td>
+                  <td style="padding:0.6rem 0.75rem;"><span style="color:#10B981; font-weight:600;">On Time</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employees Section -->
+      <div id="employees" class="content-section">
+        <div
+          style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+          <h2 style="margin:0;">Employees</h2>
+          <button class="btn btn-primary" style="padding: 0.6rem 1.25rem;">+ Add Employee</button>
+        </div>
+        <div class="stat-grid" style="margin-bottom:1.5rem;">
+          <div class="stat-card">
+            <h3>Total Employees</h3>
+            <div class="value">28</div>
+          </div>
+          <div class="stat-card">
+            <h3>Full-Time</h3>
+            <div class="value">18</div>
+          </div>
+          <div class="stat-card">
+            <h3>Part-Time</h3>
+            <div class="value">10</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <h3 style="margin-bottom:1rem;">Team Directory</h3>
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <div
+              style="display:flex; align-items:center; gap:1rem; padding:0.75rem; border-radius:var(--radius-sm); border: 1px solid var(--color-border); background:var(--color-bg);">
+              <div
+                style="width:38px; height:38px; border-radius:50%; background:var(--color-primary); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0;">
+                SK</div>
+              <div style="flex:1;"><strong style="color:var(--color-heading);">Sarah Kim</strong><br><span
+                  style="font-size:0.8rem; color:var(--color-text-light);">Manager · Morning Shift</span></div>
+              <span
+                style="font-size:0.78rem; background:rgba(16,185,129,0.1); color:#10B981; padding:0.2rem 0.6rem; border-radius:999px;">Active</span>
+            </div>
+            <div
+              style="display:flex; align-items:center; gap:1rem; padding:0.75rem; border-radius:var(--radius-sm); border: 1px solid var(--color-border); background:var(--color-bg);">
+              <div
+                style="width:38px; height:38px; border-radius:50%; background:#7C3AED; color:white; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0;">
+                MT</div>
+              <div style="flex:1;"><strong style="color:var(--color-heading);">Mike Torres</strong><br><span
+                  style="font-size:0.8rem; color:var(--color-text-light);">Staff · Afternoon Shift</span></div>
+              <span
+                style="font-size:0.78rem; background:rgba(16,185,129,0.1); color:#10B981; padding:0.2rem 0.6rem; border-radius:999px;">Active</span>
+            </div>
+            <div
+              style="display:flex; align-items:center; gap:1rem; padding:0.75rem; border-radius:var(--radius-sm); border: 1px solid var(--color-border); background:var(--color-bg);">
+              <div
+                style="width:38px; height:38px; border-radius:50%; background:#F59E0B; color:white; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0;">
+                PM</div>
+              <div style="flex:1;"><strong style="color:var(--color-heading);">Priya Mehta</strong><br><span
+                  style="font-size:0.8rem; color:var(--color-text-light);">Staff · Morning Shift</span></div>
+              <span
+                style="font-size:0.78rem; background:rgba(245,158,11,0.1); color:var(--color-warning); padding:0.2rem 0.6rem; border-radius:999px;">On
+                Leave</span>
+            </div>
+            <div
+              style="display:flex; align-items:center; gap:1rem; padding:0.75rem; border-radius:var(--radius-sm); border: 1px solid var(--color-border); background:var(--color-bg);">
+              <div
+                style="width:38px; height:38px; border-radius:50%; background:#10B981; color:white; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0;">
+                JL</div>
+              <div style="flex:1;"><strong style="color:var(--color-heading);">James Lee</strong><br><span
+                  style="font-size:0.8rem; color:var(--color-text-light);">Staff · Night Shift</span></div>
+              <span
+                style="font-size:0.78rem; background:rgba(16,185,129,0.1); color:#10B981; padding:0.2rem 0.6rem; border-radius:999px;">Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sidebar Navigation
+      const navLinks = document.querySelectorAll('.sidebar-link[data-target]');
+      const sections = document.querySelectorAll('.content-section');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+
+          sections.forEach(sec => sec.classList.remove('active'));
+          const target = document.getElementById(link.getAttribute('data-target'));
+          if (target) {
+            target.classList.add('active');
+          }
+
+          if (window.innerWidth <= 991) {
+            document.getElementById('sidebar').classList.remove('open');
+          }
+        });
+      });
+
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById('dashMenuToggle');
+      const menuClose = document.getElementById('dashMenuClose');
+      const sidebar = document.getElementById('sidebar');
+
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.add('open');
+      });
+
+      menuClose.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+
+</html>
