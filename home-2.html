@@ -13,6 +13,8 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/theme-fixes.css">
   <link rel="stylesheet" href="assets/css/home-2.css">
 
   <style>
@@ -400,15 +402,9 @@
             </div>
           </div>
         </div>
-        <div class="floating-badge badge-1">
-          <span class="icon">✅</span> Shift Coverage 98%
-        </div>
-        <div class="floating-badge badge-2">
-          <span class="icon">🔄</span> 12 Swap Requests
-        </div>
-        <div class="floating-badge badge-3">
-          <span class="icon">📉</span> Labor Cost &darr; 14%
-        </div>
+
+
+
       </div>
     </div>
   </section>
@@ -421,7 +417,6 @@
         <p class="section-subtitle">From blank canvas to optimized schedule in four simple steps.</p>
       </div>
       <div class="timeline-container">
-        <div class="timeline-line"></div>
         <div class="timeline-steps">
           <div class="timeline-step">
             <img src="assets/images/build.jpg" alt="Build schedule"
@@ -726,15 +721,6 @@
         }
       });
     });
-
-    // Mobile Menu Toggle
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if (mobileBtn) {
-      mobileBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-      });
-    }
 
     // Scroll to Top
     const scrollBtn = document.getElementById('scrollTopBtn');

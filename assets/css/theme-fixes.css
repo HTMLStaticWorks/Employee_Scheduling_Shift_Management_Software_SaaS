@@ -1,0 +1,471 @@
+
+/* =========================================================
+   SHIFTFLOW GLOBAL FIXES
+   Dark mode / mobile navigation / favicon / footer / RTL
+   ========================================================= */
+
+/* ---------- DARK MODE: every light section follows theme ---------- */
+[data-theme="dark"] body {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .footer,
+[data-theme="dark"] .footer-compact,
+[data-theme="dark"] section {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .testimonial,
+[data-theme="dark"] .labor-intelligence,
+[data-theme="dark"] .intelligence,
+[data-theme="dark"] .industry-results,
+[data-theme="dark"] .results-section {
+  background-color: var(--color-secondary) !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .hero,
+[data-theme="dark"] .c-hero,
+[data-theme="dark"] .feat-hero,
+[data-theme="dark"] .h2-hero,
+[data-theme="dark"] .about-hero,
+[data-theme="dark"] .contact-hero {
+  background: var(--color-bg) !important;
+}
+
+[data-theme="dark"] .features,
+[data-theme="dark"] .industries,
+[data-theme="dark"] .workflow,
+[data-theme="dark"] .core-features,
+[data-theme="dark"] .success-metrics,
+[data-theme="dark"] .final-cta-compact,
+[data-theme="dark"] .industry-solutions,
+[data-theme="dark"] .industry-cards,
+[data-theme="dark"] .challenges-section,
+[data-theme="dark"] .c-cta,
+[data-theme="dark"] .collab-automation,
+[data-theme="dark"] .faq-section {
+  background-color: var(--color-bg) !important;
+}
+
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-subtitle,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: var(--color-heading);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] .feature-desc,
+[data-theme="dark"] .section-subtitle,
+[data-theme="dark"] .hero-subtitle,
+[data-theme="dark"] .footer-desc,
+[data-theme="dark"] .footer-col ul a {
+  color: var(--color-text-light);
+}
+
+[data-theme="dark"] .btn-secondary {
+  background-color: var(--color-surface) !important;
+  color: var(--color-heading) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .btn-outline {
+  color: var(--color-heading) !important;
+  border-color: var(--color-border) !important;
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .btn-icon {
+  color: var(--color-heading) !important;
+  border-color: var(--color-border) !important;
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .feat-card,
+[data-theme="dark"] .solution-card,
+[data-theme="dark"] .ind-card,
+[data-theme="dark"] .auto-feat,
+[data-theme="dark"] .wf-node:not(.highlight),
+[data-theme="dark"] .tabs-content,
+[data-theme="dark"] .metrics-quote,
+[data-theme="dark"] .industry-testimonial,
+[data-theme="dark"] .faq-question,
+[data-theme="dark"] .faq-answer,
+[data-theme="dark"] .calendar-ui-h2,
+[data-theme="dark"] .dashboard-mockup,
+[data-theme="dark"] .floating-card {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .mockup-header,
+[data-theme="dark"] .cal-header,
+[data-theme="dark"] .feat-dash-header {
+  background-color: #172033 !important;
+  color: var(--color-heading) !important;
+}
+
+[data-theme="dark"] .feat-dash-sidebar,
+[data-theme="dark"] .dash-block {
+  background-color: #172033 !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .input-box,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: var(--color-surface) !important;
+  color: var(--color-heading) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .google-btn {
+  background-color: var(--color-surface) !important;
+  color: var(--color-heading) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .google-icon {
+  background-color: #0F172A !important;
+}
+
+[data-theme="dark"] .auth-card {
+  background: rgba(30, 41, 59, .98) !important;
+  border-color: #334155 !important;
+  color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .auth-bottom,
+[data-theme="dark"] .auth-footer p,
+[data-theme="dark"] .remember,
+[data-theme="dark"] .terms-row label {
+  color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] .rtl-btn {
+  background: var(--color-surface) !important;
+  color: var(--color-heading) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .auth-brand a {
+  color: var(--color-heading) !important;
+}
+
+/* ---------- MOBILE NAVIGATION ---------- */
+.mobile-nav-actions {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .navbar .nav-container {
+    position: relative;
+  }
+
+  .navbar .nav-actions {
+    display: none !important;
+  }
+
+  .navbar .nav-links {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    z-index: 110;
+  }
+
+  .navbar .nav-links.show {
+    display: flex !important;
+  }
+
+  .navbar .mobile-nav-actions {
+    display: flex !important;
+    flex-direction: column;
+    gap: .75rem;
+    width: 100%;
+    padding-top: .75rem;
+    margin-top: .25rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .navbar .mobile-nav-actions .mobile-action-row {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  .navbar .mobile-nav-actions .btn-icon {
+    flex: 0 0 40px;
+  }
+
+  .navbar .mobile-nav-actions .mobile-login {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ---------- FOOTER SPACING ---------- */
+.footer .brand-col .footer-brand,
+.footer-compact .footer-brand {
+  margin-bottom: 1.25rem !important;
+}
+
+.footer .brand-col .footer-desc {
+  margin-top: .25rem !important;
+}
+
+/* ---------- DASHBOARD RTL LOGO SPACING ---------- */
+[dir="rtl"] .dashboard-sidebar .sidebar-header {
+  gap: 1rem;
+}
+
+[dir="rtl"] .dashboard-sidebar .sidebar-header .brand {
+  margin: 0 !important;
+  margin-left: auto !important;
+  padding-inline-end: .75rem;
+}
+
+[dir="rtl"] .dashboard-sidebar .sidebar-header .mobile-close-toggle {
+  margin-inline-start: .5rem;
+}
+
+/* ---------- INDUSTRIES HERO: same image proportions as contact ---------- */
+.industries-page .visual-stack {
+  width: 100%;
+}
+
+@media (min-width: 1025px) {
+  .industries-page .visual-stack {
+    height: 420px !important;
+  }
+
+  .industries-page .img-back {
+    width: 100% !important;
+    height: 420px !important;
+  }
+
+  .industries-page .img-front {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .industries-page .visual-stack {
+    width: min(100%, 620px) !important;
+    height: 300px !important;
+  }
+
+  .industries-page .img-back {
+    width: 100% !important;
+    height: 300px !important;
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  .industries-page .img-front {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .industries-page .visual-stack {
+    width: 100% !important;
+    height: 300px !important;
+  }
+}
+
+/* ---------- HOME 1 HERO SPAN + TRUST MESSAGE ---------- */
+[data-theme="dark"] .hero-title span {
+  background: none !important;
+  -webkit-text-fill-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+.hero-title span {
+  background: none !important;
+  -webkit-text-fill-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+.hero-trust .trust-after-boxes {
+  margin-top: .75rem;
+  color: var(--color-text-light);
+  font-size: .875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+/* Dashboard sidebar menu breathing room in RTL */
+[dir="rtl"] .dashboard-sidebar .sidebar-nav {
+  padding-inline-start: 1.25rem;
+  padding-inline-end: 1.25rem;
+}
+
+
+/* =========================================================
+   HOME 1 + HOME 2 HERO ALIGNMENT
+   1024px: left aligned
+   Tablet/mobile: centered
+   ========================================================= */
+
+/* 1024px and below: use centered layout by default */
+@media (max-width: 1024px) {
+  .hero .hero-content,
+  .h2-hero .hero-content,
+  .home-hero .hero-content,
+  .hero-content {
+    text-align: center !important;
+    align-items: center !important;
+    margin-inline: auto !important;
+  }
+
+  .hero .hero-content > *,
+  .h2-hero .hero-content > *,
+  .home-hero .hero-content > * {
+    margin-inline-left: auto !important;
+    margin-inline-right: auto !important;
+  }
+
+  .hero .hero-actions,
+  .h2-hero .hero-actions,
+  .home-hero .hero-actions {
+    justify-content: center !important;
+  }
+
+  .hero .hero-trust,
+  .h2-hero .hero-trust,
+  .home-hero .hero-trust {
+    text-align: center !important;
+    margin-inline: auto !important;
+  }
+}
+
+/* Tablet: keep hero content LEFT aligned at exactly 1024px */
+@media (min-width: 992px) and (max-width: 1024px) {
+  .hero .hero-content,
+  .h2-hero .hero-content,
+  .home-hero .hero-content {
+    text-align: left !important;
+    align-items: flex-start !important;
+    margin-inline: 0 !important;
+  }
+
+  .hero .hero-content > *,
+  .h2-hero .hero-content > *,
+  .home-hero .hero-content > * {
+    margin-inline-left: 0 !important;
+    margin-inline-right: 0 !important;
+  }
+
+  .hero .hero-actions,
+  .h2-hero .hero-actions,
+  .home-hero .hero-actions {
+    justify-content: flex-start !important;
+  }
+
+  .hero .hero-trust,
+  .h2-hero .hero-trust,
+  .home-hero .hero-trust {
+    text-align: left !important;
+    margin-inline: 0 !important;
+  }
+}
+
+/* 991px and below: center hero content */
+@media (max-width: 991.98px) {
+  .hero .hero-content,
+  .h2-hero .hero-content,
+  .home-hero .hero-content {
+    text-align: center !important;
+    align-items: center !important;
+    margin-inline: auto !important;
+  }
+
+  .hero .hero-content > *,
+  .h2-hero .hero-content > *,
+  .home-hero .hero-content > * {
+    margin-inline-left: auto !important;
+    margin-inline-right: auto !important;
+  }
+
+  .hero .hero-actions,
+  .h2-hero .hero-actions,
+  .home-hero .hero-actions {
+    justify-content: center !important;
+  }
+
+  .hero .hero-trust,
+  .h2-hero .hero-trust,
+  .home-hero .hero-trust {
+    text-align: center !important;
+    margin-inline: auto !important;
+  }
+}
+
+/* Exact Home 2 class names */
+@media (max-width: 1024px) {
+  .hero-h2 .hero-content-h2 {
+    text-align: center !important;
+    align-items: center !important;
+    margin-inline: auto !important;
+  }
+
+  .hero-h2 .hero-content-h2 > * {
+    margin-inline-left: auto !important;
+    margin-inline-right: auto !important;
+  }
+
+  .hero-h2 .hero-actions-h2 {
+    justify-content: center !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1024px) {
+  .hero-h2 .hero-content-h2 {
+    text-align: left !important;
+    align-items: flex-start !important;
+    margin-inline: 0 !important;
+  }
+
+  .hero-h2 .hero-content-h2 > * {
+    margin-inline-left: 0 !important;
+    margin-inline-right: 0 !important;
+  }
+
+  .hero-h2 .hero-actions-h2 {
+    justify-content: flex-start !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hero-h2 .hero-content-h2 {
+    text-align: center !important;
+    align-items: center !important;
+    margin-inline: auto !important;
+  }
+
+  .hero-h2 .hero-content-h2 > * {
+    margin-inline-left: auto !important;
+    margin-inline-right: auto !important;
+  }
+
+  .hero-h2 .hero-actions-h2 {
+    justify-content: center !important;
+  }
+}

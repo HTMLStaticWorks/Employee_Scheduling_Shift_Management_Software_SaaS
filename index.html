@@ -13,6 +13,8 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/theme-fixes.css">
 
   <style>
     /* =========================================================
@@ -115,11 +117,24 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .customer-profile {
+        display: table;
+        margin: 0 auto;
+      }
+
+      .customer-profile img {
+        margin: 0 auto;
+      }
+    }
+
     /* Mobile */
     @media (max-width: 767.98px) {
       .hero-container {
         text-align: center;
       }
+
+
 
       .hero-content {
         display: flex;
@@ -497,12 +512,8 @@
           <a href="#features" class="btn btn-secondary btn-large">Explore Features</a>
         </div>
         <div class="hero-trust">
-          <p>Trusted by 10,000+ growing businesses</p>
-          <div class="trust-logos">
-            <div class="trust-logo"></div>
-            <div class="trust-logo"></div>
-            <div class="trust-logo"></div>
-          </div>
+
+          <p class="trust-after-boxes">Trusted by 10,000+ growing businesses</p>
         </div>
       </div>
       <div class="hero-visual">
@@ -528,20 +539,8 @@
             </div>
           </div>
         </div>
-        <div class="floating-card card-labor">
-          <div class="icon">📈</div>
-          <div class="details">
-            <span class="label">Labor Cost</span>
-            <span class="value">On Target (-2%)</span>
-          </div>
-        </div>
-        <div class="floating-card card-swap">
-          <div class="icon">🔄</div>
-          <div class="details">
-            <span class="label">Shift Swap Request</span>
-            <span class="value">Approved</span>
-          </div>
-        </div>
+
+
       </div>
     </div>
   </section>
@@ -791,15 +790,6 @@
   </footer>
 
   <script>
-    // Mobile Menu Toggle
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if (mobileBtn) {
-      mobileBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-      });
-    }
-
     // Scroll to Top
     const scrollBtn = document.getElementById('scrollTopBtn');
     if (scrollBtn) {
