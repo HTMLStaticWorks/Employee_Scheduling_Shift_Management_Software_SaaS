@@ -13,6 +13,423 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* =========================================================
+   HOME 1 RESPONSIVE / LAYOUT CORRECTIONS
+   ========================================================= */
+
+    /* Remove the extra gradient treatment from the hero visual */
+    .hero::before,
+    .hero::after,
+    .hero-container::before,
+    .hero-container::after {
+      background: none !important;
+      background-image: none !important;
+    }
+
+    /* Keep the trust block immediately below the hero actions */
+    .hero-trust {
+      margin-top: 1.5rem;
+    }
+
+    /* Everything Your Managers Need */
+    .feature-card img {
+      display: block;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      object-position: center;
+      margin: 0 0 1.5rem !important;
+      border-radius: var(--radius-md);
+    }
+
+    .feature-card .feature-title {
+      white-space: nowrap;
+    }
+
+    /* Center "One Platform. Every Shift." section heading/subtitle */
+    .industries .section-header {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Final CTA must stay above footer */
+    .final-cta {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 0;
+    }
+
+    .final-cta .cta-box {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Tablet */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .hero-container {
+        text-align: center;
+      }
+
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-trust {
+        width: 100%;
+        text-align: center;
+      }
+
+      .trust-logos {
+        justify-content: center;
+      }
+
+      .feature-card img {
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .feature-card .feature-title {
+        white-space: normal;
+      }
+
+      .platform-container {
+        align-items: center;
+      }
+
+      .industries .section-header {
+        text-align: center;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 767.98px) {
+      .hero-container {
+        text-align: center;
+      }
+
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      /* Right-side hero area centered */
+      .hero-visual {
+        width: 100%;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .hero-actions .btn,
+      .cta-actions .btn {
+        width: 100%;
+        max-width: 320px;
+        min-width: 0;
+        box-sizing: border-box;
+      }
+
+      .hero-trust {
+        width: 100%;
+        text-align: center;
+      }
+
+      .trust-logos {
+        justify-content: center;
+      }
+
+      /* Feature images fill their card cleanly */
+      .feature-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        margin-bottom: 1.5rem !important;
+      }
+
+      /* Prevent long heading from breaking the card layout */
+      .feature-card .feature-title {
+        white-space: normal;
+        line-height: 1.25;
+      }
+
+      /* Center platform/operations section */
+      .platform-container {
+        text-align: center;
+      }
+
+      .platform-content {
+        width: 100%;
+      }
+
+      /* Center section 4 heading and subtitle */
+      .industries .section-header {
+        text-align: center;
+      }
+
+      /* Give the final CTA enough separation from footer */
+      .final-cta {
+        padding-bottom: 3rem;
+        margin-bottom: 0;
+      }
+
+      .footer {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Operations Simplified: image height matches the full content column */
+    .platform-container {
+      align-items: stretch !important;
+    }
+
+    .platform-visual {
+      display: flex;
+      align-self: stretch;
+      height: auto;
+    }
+
+    .platform-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .platform-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (max-width: 767.98px) {
+      .platform-container {
+        align-items: center !important;
+      }
+
+      .platform-visual {
+        width: 100%;
+        height: 260px;
+      }
+
+      .platform-visual img {
+        height: 260px;
+        min-height: 260px;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* =========================================================
+   HOME 1 - FINAL CARD / CTA CORRECTIONS
+   ========================================================= */
+
+    /* Everything Your Managers Need: every card/image area equal */
+    .features-grid {
+      align-items: stretch !important;
+    }
+
+    .feature-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .feature-card img {
+      width: 100%;
+      height: 230px !important;
+      min-height: 230px;
+      object-fit: cover;
+      object-position: center;
+      flex: 0 0 230px;
+    }
+
+    .feature-card .feature-title {
+      min-height: 2.5em;
+    }
+
+    .feature-card .feature-desc {
+      flex: 1;
+    }
+
+    /* Make the final CTA compact and keep it completely above the footer */
+    .final-cta {
+      padding-top: 3rem !important;
+      padding-bottom: 3rem !important;
+      margin: 0 !important;
+      overflow: visible;
+    }
+
+    .final-cta .cta-box {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.25rem 2.5rem !important;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .final-cta+.footer,
+    .final-cta~.footer {
+      margin-top: 0 !important;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 1024px) {
+      .feature-card img {
+        height: 220px !important;
+        min-height: 220px;
+        flex-basis: 220px;
+      }
+
+      .final-cta .cta-box {
+        max-width: 820px;
+        padding: 2rem !important;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .feature-card {
+        height: auto;
+      }
+
+      .feature-card img {
+        height: 220px !important;
+        min-height: 220px;
+        flex-basis: 220px;
+      }
+
+      .feature-card .feature-title {
+        min-height: 0;
+      }
+
+      .final-cta {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+
+      .final-cta .cta-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 1.75rem 1.25rem !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* =========================================================
+   HOME 1 - FEATURE CARDS: EXACTLY EQUAL WIDTH / IMAGE SIZE
+   ========================================================= */
+
+    .features-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 2rem !important;
+      align-items: stretch !important;
+    }
+
+    .features-grid .feature-card {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .features-grid .feature-card img {
+      display: block !important;
+      width: 100% !important;
+      max-width: none !important;
+      height: 230px !important;
+      min-height: 230px !important;
+      flex: 0 0 230px !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      margin: 0 0 1.5rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .features-grid .feature-card .feature-title {
+      min-height: 2.5em;
+    }
+
+    .features-grid .feature-card .feature-desc {
+      flex: 1;
+    }
+
+    /* Tablet: 2 equal columns; third card remains same width and centered */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1.5rem !important;
+      }
+
+      .features-grid .feature-card img {
+        height: 220px !important;
+        min-height: 220px !important;
+        flex-basis: 220px !important;
+      }
+
+      .features-grid .feature-card:nth-child(3) {
+        grid-column: 1 / -1 !important;
+        width: calc((100% - 1.5rem) / 2) !important;
+        justify-self: center !important;
+      }
+    }
+
+    /* Mobile: one full-width card per row */
+    @media (max-width: 767.98px) {
+      .features-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 1.25rem !important;
+      }
+
+      .features-grid .feature-card {
+        width: 100% !important;
+      }
+
+      .features-grid .feature-card img {
+        width: 100% !important;
+        height: 220px !important;
+        min-height: 220px !important;
+        flex-basis: 220px !important;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -148,7 +565,7 @@
         <div class="feature-card">
           <img src="assets/images/img2.jpg" alt="Team Collaboration"
             style="margin-top: 1rem; border-radius: var(--radius-md);">
-          <h3 class="feature-title">Team Availability & Shift Swaps</h3>
+          <h3 class="feature-title">Team Availability</h3>
           <p class="feature-desc">Empower your team to manage their availability and trade shifts seamlessly from their
             phones.</p>
 

@@ -135,6 +135,171 @@
     }
   </style>
 
+
+  <style>
+    /* =========================================================
+   HOME 2 - HOW SHIFT FLOW WORKS FINAL RESPONSIVE FIX
+   ========================================================= */
+
+    .timeline-steps {
+      align-items: stretch !important;
+    }
+
+    .timeline-step {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .timeline-step img {
+      display: block;
+      width: 100% !important;
+      height: 230px !important;
+      min-height: 230px !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      flex: 0 0 230px;
+      margin: 0 0 1.5rem !important;
+      border: 1px solid var(--border-color, #dfe5ec);
+      border-radius: var(--radius-md, 16px);
+      box-sizing: border-box;
+    }
+
+    .timeline-step .step-title {
+      margin-top: 0 !important;
+      text-align: center;
+    }
+
+    .timeline-step .step-desc {
+      text-align: center;
+      flex: 1;
+    }
+
+    /* Tablet: same image dimensions in every card */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .timeline-steps {
+        align-items: stretch !important;
+      }
+
+      .timeline-step {
+        height: 100%;
+      }
+
+      .timeline-step img {
+        width: 100% !important;
+        height: 220px !important;
+        min-height: 220px !important;
+        flex-basis: 220px;
+        object-fit: cover !important;
+      }
+    }
+
+    /* Mobile: one card per row, identical image size */
+    @media (max-width: 767.98px) {
+      .timeline-step {
+        width: 100%;
+        height: auto;
+      }
+
+      .timeline-step img {
+        width: 100% !important;
+        height: 220px !important;
+        min-height: 220px !important;
+        flex-basis: 220px;
+        object-fit: cover !important;
+        object-position: center !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* =========================================================
+   BUILT FOR EVERY WORKFORCE - IMAGE RESPONSIVE FIX
+   ========================================================= */
+
+    /* Every workforce image uses the same visual container */
+    .industries-tabs .tabs-content,
+    .industries-tabs .tab-pane,
+    .industries-tabs .pane-grid {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .industries-tabs .pane-image {
+      width: 100% !important;
+      height: 300px !important;
+      min-height: 300px !important;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      background-size: cover !important;
+      border-radius: var(--radius-md, 16px);
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    /* Tablet: show the COMPLETE image instead of cropping it */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .industries-tabs .pane-grid {
+        align-items: stretch !important;
+      }
+
+      .industries-tabs .pane-image {
+        width: 100% !important;
+        height: 280px !important;
+        min-height: 280px !important;
+        background-size: contain !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-color: var(--surface, #fff);
+        border: 1px solid var(--border-color, #dfe5ec);
+      }
+
+      .industries-tabs .pane-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    /* Mobile: same-size image container and complete image visible */
+    @media (max-width: 767.98px) {
+      .industries-tabs .pane-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.25rem;
+      }
+
+      .industries-tabs .pane-text,
+      .industries-tabs .pane-image {
+        width: 100% !important;
+      }
+
+      .industries-tabs .pane-image {
+        height: 220px !important;
+        min-height: 220px !important;
+        background-size: contain !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-color: var(--surface, #fff);
+        border: 1px solid var(--border-color, #dfe5ec);
+      }
+
+      .industries-tabs .tabs-nav {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: .65rem;
+      }
+
+      .industries-tabs .tabs-nav .tab-btn {
+        width: 100% !important;
+        min-width: 0 !important;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
