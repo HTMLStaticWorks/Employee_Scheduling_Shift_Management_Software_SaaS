@@ -4,36 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
-  const originalNavActions = document.querySelector('.nav-actions');
 
   if (mobileBtn && navLinks) {
-    // Put RTL, theme and Login inside the hamburger menu on tablet/mobile.
-    if (originalNavActions && !navLinks.querySelector('.mobile-nav-actions')) {
-      const mobileItem = document.createElement('li');
-      mobileItem.className = 'mobile-nav-actions';
-
-      const mobileRow = document.createElement('div');
-      mobileRow.className = 'mobile-action-row';
-
-      originalNavActions.querySelectorAll('.rtl-toggle, .theme-toggle').forEach(control => {
-        const clone = control.cloneNode(true);
-        clone.removeAttribute('id');
-        mobileRow.appendChild(clone);
-      });
-
-      const login = originalNavActions.querySelector('a[href*="login"]');
-      if (login) {
-        const loginClone = login.cloneNode(true);
-        loginClone.classList.add('mobile-login');
-        mobileItem.appendChild(mobileRow);
-        mobileItem.appendChild(loginClone);
-      } else {
-        mobileItem.appendChild(mobileRow);
-      }
-
-      navLinks.appendChild(mobileItem);
-    }
-
     mobileBtn.setAttribute('aria-expanded', 'false');
     mobileBtn.addEventListener('click', () => {
       const open = navLinks.classList.toggle('show');
