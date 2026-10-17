@@ -380,6 +380,30 @@
       }
     }
 
+    /* =========================================================
+       DASHBOARD RESPONSIVE & 360px TIME & ATTENDANCE FIXES
+       ========================================================= */
+
+    /* Ensure flex containers never blow out their min-content width */
+    .dashboard-main {
+      min-width: 0;
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+
+    .dashboard-content {
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .content-section {
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     @media (max-width: 767px) {
       .dashboard-content {
         padding: 1rem;
@@ -417,6 +441,157 @@
 
       #employees .stat-card>div[style*="display:flex; flex-direction:column"]>div>span {
         margin-left: auto;
+      }
+    }
+
+    /* Precise 360px & Small Mobile Viewport Fix */
+    @media (max-width: 575.98px) {
+      body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+      }
+
+      .dashboard-main {
+        width: 100% !important;
+        max-width: 100vw !important;
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+      }
+
+      .dashboard-content {
+        padding: 0.875rem !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+      }
+
+      .content-section,
+      #attendance {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      #attendance>h2 {
+        font-size: 1.35rem !important;
+        line-height: 1.25;
+        margin-bottom: 0.875rem !important;
+        overflow-wrap: anywhere;
+      }
+
+      /* Time & Attendance Stat Grid 360px Fix */
+      #attendance .stat-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+        box-sizing: border-box !important;
+      }
+
+      #attendance .stat-grid>.stat-card,
+      #attendance .stat-grid>.stat-card:nth-child(3) {
+        grid-column: 1 / -1 !important;
+        justify-self: stretch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        padding: 0.875rem 1rem !important;
+        border-radius: var(--radius-md) !important;
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      #attendance .stat-card h3 {
+        font-size: 0.8125rem !important;
+        color: var(--color-text-light);
+        margin-bottom: 0.35rem !important;
+        overflow-wrap: anywhere;
+        line-height: 1.3;
+      }
+
+      #attendance .stat-card .value {
+        font-size: 1.75rem !important;
+        line-height: 1.15;
+        font-weight: 700;
+        color: var(--color-heading);
+      }
+
+      /* Table Card 360px Containment */
+      #attendance .attendance-table-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 0.875rem !important;
+        margin-top: 1rem !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        border-radius: var(--radius-md) !important;
+      }
+
+      #attendance .attendance-table-card h3 {
+        font-size: 0.95rem !important;
+        margin-bottom: 0.75rem !important;
+        overflow-wrap: anywhere;
+      }
+
+      #attendance .table-responsive {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior-x: contain;
+        border-radius: var(--radius-sm);
+      }
+
+      #attendance .table-responsive table {
+        min-width: 480px !important;
+        width: 100% !important;
+        border-collapse: collapse;
+      }
+
+      #attendance .table-responsive th,
+      #attendance .table-responsive td {
+        padding: 0.5rem 0.6rem !important;
+        font-size: 0.8125rem !important;
+        white-space: nowrap;
+      }
+
+      .dashboard-header {
+        height: 60px !important;
+        padding: 0 0.875rem !important;
+        gap: 0.5rem;
+        min-width: 0;
+        max-width: 100vw;
+      }
+
+      .dashboard-mobile-brand {
+        font-size: 1.15rem;
+        min-width: 0;
+      }
+
+      .dashboard-mobile-brand .brand-icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+
+      .header-right {
+        min-width: 0;
+        flex-shrink: 0;
+        gap: 0.35rem;
       }
     }
   </style>
@@ -479,26 +654,6 @@
       <!-- Mobile extra actions injected here -->
       <div class="mobile-actions">
         <div class="mobile-actions-row">
-          <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
-            </svg>
-          </button>
-          <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
-            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-              <circle cx="12" cy="12" r="5" />
-              <path
-                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-            </svg>
-          </button>
-        </div>
-        <div class="mobile-actions-row">
           <button class="profile-btn">JD</button> <span style="font-weight: 500;">John Doe</span>
         </div>
       </div>
@@ -538,24 +693,6 @@
         </button>
 
         <div class="desktop-actions">
-          <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
-            </svg>
-          </button>
-          <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
-            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-              <circle cx="12" cy="12" r="5" />
-              <path
-                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-            </svg>
-          </button>
           <button class="profile-btn">JD</button>
         </div>
 
@@ -709,20 +846,51 @@
 
       <!-- Attendance Section -->
       <div id="attendance" class="content-section">
-        <h2 style="margin-bottom:1.5rem;">Time &amp; Attendance</h2>
+        <div
+          style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+          <div>
+            <h2 style="margin:0; font-size:1.5rem;">Time &amp; Attendance</h2>
+            <p style="color:var(--color-text-light); font-size:0.875rem; margin-top:0.25rem;">Live employee clock
+              activity and attendance tracking</p>
+          </div>
+          <span
+            style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.35rem 0.75rem; border-radius:999px; background:rgba(16,185,129,0.12); color:#10B981; font-size:0.8125rem; font-weight:600;">
+            <span
+              style="width:8px; height:8px; border-radius:50%; background:#10B981; display:inline-block; animation: pulse 2s infinite;"></span>
+            Live Attendance Active
+          </span>
+        </div>
         <div class="stat-grid">
-          <div class="stat-card">
-            <h3>Clock-Ins Today</h3>
+          <div class="stat-card" style="border-left: 4px solid #10B981;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <h3>Clock-Ins Today</h3>
+              <span
+                style="background:rgba(16,185,129,0.1); color:#10B981; padding:0.15rem 0.5rem; border-radius:999px; font-size:0.75rem; font-weight:600;">90%
+                On Time</span>
+            </div>
             <div class="value">18</div>
+            <p style="font-size:0.8rem; color:var(--color-text-light); margin-top:0.35rem;">Out of 20 scheduled shifts
+            </p>
           </div>
-          <div class="stat-card">
-            <h3>On Break</h3>
+          <div class="stat-card" style="border-left: 4px solid var(--color-accent);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <h3>On Break</h3>
+              <span
+                style="background:rgba(56,189,248,0.1); color:var(--color-accent); padding:0.15rem 0.5rem; border-radius:999px; font-size:0.75rem; font-weight:600;">Active</span>
+            </div>
             <div class="value">4</div>
+            <p style="font-size:0.8rem; color:var(--color-text-light); margin-top:0.35rem;">Expected return within 15
+              mins</p>
           </div>
-          <div class="stat-card">
-            <h3>Late Arrivals</h3>
+          <div class="stat-card" style="border-left: 4px solid var(--color-error);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <h3>Late Arrivals</h3>
+              <span
+                style="background:rgba(239,68,68,0.1); color:var(--color-error); padding:0.15rem 0.5rem; border-radius:999px; font-size:0.75rem; font-weight:600;">Flagged</span>
+            </div>
             <div class="value">2</div>
-            <p style="font-size:0.8rem; color:var(--color-error); margin-top:0.5rem;">↑ 1 from yesterday</p>
+            <p style="font-size:0.8rem; color:var(--color-error); margin-top:0.35rem;">↑ 1 from yesterday (Needs review)
+            </p>
           </div>
         </div>
         <div class="stat-card attendance-table-card" style="margin-top:1.5rem;">

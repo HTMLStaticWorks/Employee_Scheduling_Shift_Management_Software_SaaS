@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,45 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up | ShiftFlow</title>
     <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="assets/css/theme-fixes.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="stylesheet" href="assets/css/theme-fixes.css">
     <link rel="stylesheet" href="assets/css/auth.css">
 
     <style>
-      /* Keep authentication brand identical to the homepage brand */
-      .auth-brand a {
-        color: var(--color-primary) !important;
-        font-family: var(--font-primary) !important;
-        font-size: 1.5rem !important;
-        font-weight: 800 !important;
-        letter-spacing: -0.5px;
-      }
-      .auth-brand a span, .auth-brand a span span { color: var(--color-primary) !important; }
-      .auth-brand .brand-icon { color: var(--color-primary) !important; }
+        /* Keep authentication brand identical to the homepage brand */
+        .auth-brand a {
+            color: var(--color-primary) !important;
+            font-family: var(--font-primary) !important;
+            font-size: 1.5rem !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.5px;
+        }
+
+        .auth-brand a span,
+        .auth-brand a span span {
+            color: var(--color-primary) !important;
+        }
+
+        .auth-brand .brand-icon {
+            color: var(--color-primary) !important;
+        }
     </style>
 </head>
 
 <body>
     <!-- Top Right Icons -->
     <div style="position: absolute; top: 1rem; right: 1rem; display: flex; gap: 0.5rem; z-index: 100;">
-        <button class="btn-icon rtl-toggle" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
-            </svg>
-        </button>
-        <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
-            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-                <circle cx="12" cy="12" r="5" />
-                <path
-                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-            </svg>
-        </button>
     </div>
 
     <div class="auth-page">

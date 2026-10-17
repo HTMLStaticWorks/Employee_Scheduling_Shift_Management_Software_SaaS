@@ -4,455 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShiftFlow | Build Better Shifts. Run Better Days.</title>
+  <title>ShiftFlow | Modern Employee Scheduling & Shift Management Software (SaaS)</title>
   <meta name="description"
-    content="Automated employee scheduling software. Smart scheduling, labor cost forecasting, and seamless shift swaps.">
+    content="The all-in-one employee scheduling and shift management software. Create schedules in minutes, manage shifts, track availability, automate shift swaps, prevent conflicts, and reduce labor costs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="stylesheet" href="assets/css/theme-fixes.css">
-
-  <style>
-    /* =========================================================
-   HOME 1 RESPONSIVE / LAYOUT CORRECTIONS
-   ========================================================= */
-
-    /* Remove the extra gradient treatment from the hero visual */
-    .hero::before,
-    .hero::after,
-    .hero-container::before,
-    .hero-container::after {
-      background: none !important;
-      background-image: none !important;
-    }
-
-    /* Keep the trust block immediately below the hero actions */
-    .hero-trust {
-      margin-top: 1.5rem;
-    }
-
-    /* Everything Your Managers Need */
-    .feature-card img {
-      display: block;
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      object-position: center;
-      margin: 0 0 1.5rem !important;
-      border-radius: var(--radius-md);
-    }
-
-    .feature-card .feature-title {
-      white-space: nowrap;
-    }
-
-    /* Center "One Platform. Every Shift." section heading/subtitle */
-    .industries .section-header {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Final CTA must stay above footer */
-    .final-cta {
-      position: relative;
-      z-index: 2;
-      margin-bottom: 0;
-    }
-
-    .final-cta .cta-box {
-      position: relative;
-      z-index: 3;
-    }
-
-    /* Tablet */
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .hero-container {
-        text-align: center;
-      }
-
-      .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .hero-visual {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-trust {
-        width: 100%;
-        text-align: center;
-      }
-
-      .trust-logos {
-        justify-content: center;
-      }
-
-      .feature-card img {
-        height: 250px;
-        object-fit: cover;
-      }
-
-      .feature-card .feature-title {
-        white-space: normal;
-      }
-
-      .platform-container {
-        align-items: center;
-      }
-
-      .industries .section-header {
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .customer-profile {
-        display: table;
-        margin: 0 auto;
-      }
-
-      .customer-profile img {
-        margin: 0 auto;
-      }
-    }
-
-    /* Mobile */
-    @media (max-width: 767.98px) {
-      .hero-container {
-        text-align: center;
-      }
-
-
-
-      .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-      }
-
-      /* Right-side hero area centered */
-      .hero-visual {
-        width: 100%;
-        max-width: 620px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-actions,
-      .cta-actions {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      .hero-actions .btn,
-      .cta-actions .btn {
-        width: 100%;
-        max-width: 320px;
-        min-width: 0;
-        box-sizing: border-box;
-      }
-
-      .hero-trust {
-        width: 100%;
-        text-align: center;
-      }
-
-      .trust-logos {
-        justify-content: center;
-      }
-
-      /* Feature images fill their card cleanly */
-      .feature-card img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        margin-bottom: 1.5rem !important;
-      }
-
-      /* Prevent long heading from breaking the card layout */
-      .feature-card .feature-title {
-        white-space: normal;
-        line-height: 1.25;
-      }
-
-      /* Center platform/operations section */
-      .platform-container {
-        text-align: center;
-      }
-
-      .platform-content {
-        width: 100%;
-      }
-
-      /* Center section 4 heading and subtitle */
-      .industries .section-header {
-        text-align: center;
-      }
-
-      /* Give the final CTA enough separation from footer */
-      .final-cta {
-        padding-bottom: 3rem;
-        margin-bottom: 0;
-      }
-
-      .footer {
-        position: relative;
-        z-index: 1;
-      }
-    }
-  </style>
-
-
-  <style>
-    /* Operations Simplified: image height matches the full content column */
-    .platform-container {
-      align-items: stretch !important;
-    }
-
-    .platform-visual {
-      display: flex;
-      align-self: stretch;
-      height: auto;
-    }
-
-    .platform-visual img {
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-
-    .platform-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    @media (max-width: 767.98px) {
-      .platform-container {
-        align-items: center !important;
-      }
-
-      .platform-visual {
-        width: 100%;
-        height: 260px;
-      }
-
-      .platform-visual img {
-        height: 260px;
-        min-height: 260px;
-      }
-    }
-  </style>
-
-
-  <style>
-    /* =========================================================
-   HOME 1 - FINAL CARD / CTA CORRECTIONS
-   ========================================================= */
-
-    /* Everything Your Managers Need: every card/image area equal */
-    .features-grid {
-      align-items: stretch !important;
-    }
-
-    .feature-card {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      box-sizing: border-box;
-    }
-
-    .feature-card img {
-      width: 100%;
-      height: 230px !important;
-      min-height: 230px;
-      object-fit: cover;
-      object-position: center;
-      flex: 0 0 230px;
-    }
-
-    .feature-card .feature-title {
-      min-height: 2.5em;
-    }
-
-    .feature-card .feature-desc {
-      flex: 1;
-    }
-
-    /* Make the final CTA compact and keep it completely above the footer */
-    .final-cta {
-      padding-top: 3rem !important;
-      padding-bottom: 3rem !important;
-      margin: 0 !important;
-      overflow: visible;
-    }
-
-    .final-cta .cta-box {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.25rem 2.5rem !important;
-      box-sizing: border-box;
-      position: relative;
-    }
-
-    .final-cta+.footer,
-    .final-cta~.footer {
-      margin-top: 0 !important;
-      position: relative;
-      z-index: 2;
-    }
-
-    @media (max-width: 1024px) {
-      .feature-card img {
-        height: 220px !important;
-        min-height: 220px;
-        flex-basis: 220px;
-      }
-
-      .final-cta .cta-box {
-        max-width: 820px;
-        padding: 2rem !important;
-      }
-    }
-
-    @media (max-width: 767.98px) {
-      .feature-card {
-        height: auto;
-      }
-
-      .feature-card img {
-        height: 220px !important;
-        min-height: 220px;
-        flex-basis: 220px;
-      }
-
-      .feature-card .feature-title {
-        min-height: 0;
-      }
-
-      .final-cta {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-      }
-
-      .final-cta .cta-box {
-        width: 100%;
-        max-width: 100%;
-        padding: 1.75rem 1.25rem !important;
-      }
-    }
-  </style>
-
-
-  <style>
-    /* =========================================================
-   HOME 1 - FEATURE CARDS: EXACTLY EQUAL WIDTH / IMAGE SIZE
-   ========================================================= */
-
-    .features-grid {
-      display: grid !important;
-      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-      gap: 2rem !important;
-      align-items: stretch !important;
-    }
-
-    .features-grid .feature-card {
-      width: 100% !important;
-      min-width: 0 !important;
-      max-width: none !important;
-      height: 100% !important;
-      box-sizing: border-box !important;
-      display: flex !important;
-      flex-direction: column !important;
-    }
-
-    .features-grid .feature-card img {
-      display: block !important;
-      width: 100% !important;
-      max-width: none !important;
-      height: 230px !important;
-      min-height: 230px !important;
-      flex: 0 0 230px !important;
-      object-fit: cover !important;
-      object-position: center !important;
-      margin: 0 0 1.5rem !important;
-      box-sizing: border-box !important;
-    }
-
-    .features-grid .feature-card .feature-title {
-      min-height: 2.5em;
-    }
-
-    .features-grid .feature-card .feature-desc {
-      flex: 1;
-    }
-
-    /* Tablet: 2 equal columns; third card remains same width and centered */
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .features-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 1.5rem !important;
-      }
-
-      .features-grid .feature-card img {
-        height: 220px !important;
-        min-height: 220px !important;
-        flex-basis: 220px !important;
-      }
-
-      .features-grid .feature-card:nth-child(3) {
-        grid-column: 1 / -1 !important;
-        width: calc((100% - 1.5rem) / 2) !important;
-        justify-self: center !important;
-      }
-    }
-
-    /* Mobile: one full-width card per row */
-    @media (max-width: 767.98px) {
-      .features-grid {
-        grid-template-columns: minmax(0, 1fr) !important;
-        gap: 1.25rem !important;
-      }
-
-      .features-grid .feature-card {
-        width: 100% !important;
-      }
-
-      .features-grid .feature-card img {
-        width: 100% !important;
-        height: 220px !important;
-        min-height: 220px !important;
-        flex-basis: 220px !important;
-      }
-    }
-  </style>
-
+  <link rel="stylesheet" href="assets/css/redesign-home.css">
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="mainNavbar">
     <div class="container nav-container">
-      <a href="index.html" class="brand">
+      <a href="index.html" class="brand" aria-label="ShiftFlow Home">
         <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -468,7 +39,7 @@
         </svg>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link active">Home 1</a></li>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
         <li><a href="home-2.html" class="nav-link">Home 2</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="features.html" class="nav-link">Features</a></li>
@@ -478,21 +49,17 @@
       </ul>
       <div class="nav-actions">
         <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
           </svg>
         </button>
         <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
-          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
-          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
             <circle cx="12" cy="12" r="5" />
-            <path
-              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
           </svg>
         </button>
         <a href="login.html" class="btn btn-primary">Login</a>
@@ -500,214 +67,972 @@
     </div>
   </nav>
 
-  <!-- 1. Hero Section -->
-  <section class="hero" id="hero">
-    <div class="container hero-container">
-      <div class="hero-content">
-        <h1 class="hero-title">Build Better Shifts. <span>Run Better Days.</span></h1>
-        <p class="hero-subtitle">The modern employee scheduling platform that eliminates confusion, minimizes labor
-          costs, and keeps your team happy.</p>
-        <div class="hero-actions">
-          <a href="#" class="btn btn-primary btn-large">Start Free</a>
-          <a href="#features" class="btn btn-secondary btn-large">Explore Features</a>
-        </div>
-        <div class="hero-trust">
-
-          <p class="trust-after-boxes">Trusted by 10,000+ growing businesses</p>
-        </div>
+  <!-- ========================================================================
+       1. HERO SECTION
+       ======================================================================== -->
+  <header class="hero-redesign" id="hero">
+    <div class="container hero-redesign-inner">
+      <span class="badge badge-primary">
+        <span>✨</span> Next-Gen AI Employee Scheduling & Shift Management
+      </span>
+      <h1 class="hero-main-title">
+        Build Flawless Schedules in Minutes. <span class="gradient-text">Run Smarter Shifts Every Day.</span>
+      </h1>
+      <p class="hero-desc">
+        ShiftFlow is the all-in-one workforce SaaS that eliminates scheduling headaches, automates shift trades, tracks
+        real-time staff availability, prevents costly overtime conflicts, and boosts team productivity.
+      </p>
+      <div class="hero-btns">
+        <a href="signup.html" class="btn btn-primary">Start 14-Day Free Trial</a>
+        <a href="dashboard.html" class="btn btn-secondary">Explore Live Dashboard</a>
+        <a href="contact.html" class="btn btn-outline"
+          style="border: 1px solid var(--color-border); padding: 0.85rem 1.5rem;">Book a Demo</a>
       </div>
-      <div class="hero-visual">
-        <div class="dashboard-mockup">
-          <div class="mockup-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="mockup-body">
-            <div class="calendar-grid">
-              <div class="cal-item header">Mon</div>
-              <div class="cal-item header">Tue</div>
-              <div class="cal-item header">Wed</div>
-              <div class="cal-item header">Thu</div>
-              <div class="cal-item header">Fri</div>
+      <div class="hero-guarantee">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> No credit card required</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> Setup in 5 minutes</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> 4.9/5 G2 &amp; Capterra Rating</span>
+      </div>
 
-              <div class="cal-item shift blue">9AM - 5PM<br>Alex</div>
-              <div class="cal-item shift green">10AM - 6PM<br>Sarah</div>
-              <div class="cal-item shift purple">12PM - 8PM<br>Mike</div>
-              <div class="cal-item shift blue">9AM - 5PM<br>Alex</div>
-              <div class="cal-item shift orange">Off</div>
+      <!-- Hero Software Dashboard Mockup -->
+      <div class="hero-mockup-wrapper">
+        <!-- Floating Highlight Badge 1 -->
+        <div class="hero-floating-badge badge-top-left">
+          <div class="floating-icon" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">⚡</div>
+          <div class="floating-text">
+            <strong>90% Faster Scheduling</strong>
+            <span>42 shifts auto-filled in 8 seconds</span>
+          </div>
+        </div>
+
+        <!-- Floating Highlight Badge 2 -->
+        <div class="hero-floating-badge badge-bottom-right">
+          <div class="floating-icon" style="background: rgba(239, 68, 68, 0.15); color: #EF4444;">🛡️</div>
+          <div class="floating-text">
+            <strong>Conflict Shield Active</strong>
+            <span>Zero double-bookings &amp; overtime blocked</span>
+          </div>
+        </div>
+
+        <!-- Floating Highlight Badge 3 -->
+        <div class="hero-floating-badge badge-bottom-left">
+          <div class="floating-icon" style="background: rgba(56, 189, 248, 0.15); color: #0284c7;">💰</div>
+          <div class="floating-text">
+            <strong>Labor Budget On-Track</strong>
+            <span>Variance -$1,200 under weekly forecast</span>
+          </div>
+        </div>
+
+        <div class="hero-mockup-card">
+          <div class="hero-mockup-topbar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <div class="mockup-url-bar">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <span>app.shiftflow.io/schedules/weekly-calendar</span>
             </div>
           </div>
+          <img src="assets/images/hero_dashboard.jpg" alt="ShiftFlow Scheduling Dashboard Software Preview"
+            class="hero-mockup-image" loading="lazy">
         </div>
+      </div>
 
-
+      <!-- Social Proof Logos -->
+      <div class="hero-social-proof">
+        <p class="social-proof-text">Trusted by 12,000+ growing teams across diverse hourly industries</p>
+        <div class="proof-logos-grid">
+          <span class="proof-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3" />
+            </svg> Horizon Cafe Co.</span>
+          <span class="proof-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" />
+            </svg> Prime Retail Group</span>
+          <span class="proof-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg> Metro Health Clinic</span>
+          <span class="proof-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <rect x="1" y="3" width="15" height="13" />
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </svg> Swift Logistics</span>
+          <span class="proof-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg> Grand Vista Hotels</span>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- 2. Scheduling Automation Features -->
-  <section class="features" id="features">
+  <!-- ========================================================================
+       2. PLATFORM OVERVIEW SECTION
+       ======================================================================== -->
+  <section class="section-py" id="overview">
     <div class="container">
-      <div class="section-header center">
-        <h2 class="section-title">Everything Your Managers Need to Stay Ahead</h2>
-        <p class="section-subtitle">Powerful automation tools that turn hours of scheduling into minutes.</p>
+      <div class="section-head">
+        <span class="badge badge-accent">Unified Command Center</span>
+        <h2 class="section-title">One Unified Platform. Every Shift in Sync.</h2>
+        <p class="section-subtitle">
+          Say goodbye to chaotic Excel sheets, fragmented WhatsApp group chats, and surprise overtime bills. ShiftFlow
+          centralizes scheduling, attendance, shift swaps, and payroll prep into one intelligent workspace.
+        </p>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <img src="assets/images/img1.jpg" alt="Smart Scheduling"
-            style="margin-top: 1rem; border-radius: var(--radius-md);">
-          <h3 class="feature-title">Smart Scheduling</h3>
-          <p class="feature-desc">Auto-generate schedules based on employee availability, labor laws, and historical
-            sales data.</p>
 
+      <div class="overview-grid">
+        <!-- Pillar 1 -->
+        <div class="overview-card">
+          <div class="overview-icon-box">📅</div>
+          <h3 class="overview-title">Smart Schedule Builder</h3>
+          <p class="overview-desc">
+            Visual drag-and-drop calendar with day, week, and role views. Use saved templates or generate optimal shifts
+            in one click with AI algorithms.
+          </p>
+          <div class="overview-stat">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Save up to 8 hrs/week
+          </div>
         </div>
-        <div class="feature-card">
-          <img src="assets/images/img2.jpg" alt="Team Collaboration"
-            style="margin-top: 1rem; border-radius: var(--radius-md);">
-          <h3 class="feature-title">Team Availability</h3>
-          <p class="feature-desc">Empower your team to manage their availability and trade shifts seamlessly from their
-            phones.</p>
 
+        <!-- Pillar 2 -->
+        <div class="overview-card">
+          <div class="overview-icon-box">🔄</div>
+          <h3 class="overview-title">Shift Management Hub</h3>
+          <p class="overview-desc">
+            Broadcast unassigned shifts, manage call-outs with instant backfills, and automate manager approvals for
+            peer shift swaps with rule guards.
+          </p>
+          <div class="overview-stat">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            99.4% shift fulfillment rate
+          </div>
         </div>
-        <div class="feature-card">
-          <img src="assets/images/img3.jpg" alt="Labor Cost Data"
-            style="margin-top: 1rem; border-radius: var(--radius-md);">
-          <h3 class="feature-title">Labor Cost Forecasting</h3>
-          <p class="feature-desc">Track real-time labor costs against projected sales to ensure you are always
-            profitable.</p>
 
+        <!-- Pillar 3 -->
+        <div class="overview-card">
+          <div class="overview-icon-box">📱</div>
+          <h3 class="overview-title">Employee Availability Hub</h3>
+          <p class="overview-desc">
+            Give workers the mobile autonomy to set recurring availability windows, request blackout dates, and claim
+            open shifts directly from their phones.
+          </p>
+          <div class="overview-stat">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            24% reduced employee turnover
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="overview-card">
+          <div class="overview-icon-box">⚖️</div>
+          <h3 class="overview-title">Compliance &amp; Cost Guard</h3>
+          <p class="overview-desc">
+            Real-time labor cost tracking against sales forecasts. Automated flags for overtime, Fair Workweek rules,
+            and mandatory rest periods.
+          </p>
+          <div class="overview-stat">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            15% average overtime savings
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. Operations / Platform Showcase -->
-  <section class="platform" id="platform">
-    <div class="container platform-container">
-      <div class="platform-visual">
-        <div class="glow-backdrop"></div>
-        <img src="assets/images/operations.jpg" alt="Dashboard visualization" class="platform-img">
-      </div>
-      <div class="platform-content">
-        <h2 class="section-title">Operations Simplified</h2>
-        <ul class="platform-list">
-          <li>
-            <div class="list-icon">⚡</div>
-            <div class="list-text">
-              <h4>Automated Scheduling</h4>
-              <p>Build error-free schedules in one click using AI.</p>
-            </div>
-          </li>
-          <li>
-            <div class="list-icon">🌴</div>
-            <div class="list-text">
-              <h4>Time-off Approvals</h4>
-              <p>Review and approve PTO requests instantly.</p>
-            </div>
-          </li>
-          <li>
-            <div class="list-icon">🛡️</div>
-            <div class="list-text">
-              <h4>Conflict Detection</h4>
-              <p>Never accidentally schedule someone into overtime again.</p>
-            </div>
-          </li>
-          <li>
-            <div class="list-icon">⚖️</div>
-            <div class="list-text">
-              <h4>Labor Optimization</h4>
-              <p>Match staffing levels precisely to customer demand.</p>
-            </div>
-          </li>
-        </ul>
-        <a href="#" class="btn btn-secondary mt-4">Explore All Features</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Industries / Solutions -->
-  <section class="industries" id="industries">
+  <!-- ========================================================================
+       3. KEY FEATURES SECTION
+       ======================================================================== -->
+  <section class="section-py" id="features" style="background: var(--color-bg);">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">One Platform. Every Shift.</h2>
-        <p class="section-subtitle">Tailored solutions for teams that rely on hourly workers.</p>
+      <div class="section-head">
+        <span class="badge badge-primary">Comprehensive Feature Suite</span>
+        <h2 class="section-title">Engineered for Fast-Paced Hourly Teams</h2>
+        <p class="section-subtitle">
+          From independent cafes to 500-employee multi-location enterprises, ShiftFlow delivers powerful tools tailored
+          to operations leaders and their frontline teams.
+        </p>
       </div>
-      <div class="industries-grid">
-        <a href="industries.html" class="industry-card"
-          style="background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop');">
-          <div class="industry-content">
-            <h3 class="industry-title">Restaurants</h3>
-            <p class="industry-desc">Manage front and back of house with ease.</p>
-            <span class="industry-link">Learn More &rarr;</span>
+
+      <div class="features-container-grid">
+        <!-- Feature 1 -->
+        <div class="key-feature-card">
+          <div class="feature-top-icon" style="background: rgba(79, 70, 229, 0.1); color: var(--color-primary);">📊
           </div>
-        </a>
-        <a href="industries.html" class="industry-card"
-          style="background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2070&auto=format&fit=crop');">
-          <div class="industry-content">
-            <h3 class="industry-title">Retail</h3>
-            <p class="industry-desc">Optimize coverage for peak shopping hours.</p>
-            <span class="industry-link">Learn More &rarr;</span>
+          <h3>Multi-View Scheduling Calendar</h3>
+          <p>
+            Switch between Day, Week, Month, Employee, and Station views. Filter by certifications, wage brackets, and
+            full-time/part-time status with ease.
+          </p>
+          <div class="feature-pill-list">
+            <span>Drag &amp; Drop</span>
+            <span>Color Tags</span>
+            <span>Role Filters</span>
           </div>
-        </a>
-        <a href="industries.html" class="industry-card"
-          style="background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop');">
-          <div class="industry-content">
-            <h3 class="industry-title">Healthcare</h3>
-            <p class="industry-desc">Ensure compliance and safe staffing ratios.</p>
-            <span class="industry-link">Learn More &rarr;</span>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="key-feature-card">
+          <div class="feature-top-icon" style="background: rgba(239, 68, 68, 0.1); color: var(--color-error);">🛡️</div>
+          <h3>Conflict &amp; Overtime Shield</h3>
+          <p>
+            Never accidentally schedule someone into overtime or double-book an employee. ShiftFlow automatically warns
+            managers before mistakes happen.
+          </p>
+          <div class="feature-pill-list">
+            <span>Overtime Caps</span>
+            <span>Clopening Alerts</span>
+            <span>Rest Gaps</span>
           </div>
-        </a>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="key-feature-card">
+          <div class="feature-top-icon" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">📲</div>
+          <h3>Mobile Self-Service Apps</h3>
+          <p>
+            Staff can check their roster, request shift drops, submit PTO requests, and receive schedule publish
+            notifications on iOS and Android devices.
+          </p>
+          <div class="feature-pill-list">
+            <span>Push Notifications</span>
+            <span>One-Tap Swaps</span>
+            <span>PTO Tracking</span>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="key-feature-card">
+          <div class="feature-top-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--color-warning);">💵
+          </div>
+          <h3>Labor Cost &amp; Sales Forecasting</h3>
+          <p>
+            Monitor live labor spend against target revenue budgets. Accurately predict staffing requirements based on
+            historical POS sales data.
+          </p>
+          <div class="feature-pill-list">
+            <span>Budget Meters</span>
+            <span>POS Sync</span>
+            <span>Variance Reports</span>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="key-feature-card">
+          <div class="feature-top-icon" style="background: rgba(56, 189, 248, 0.1); color: #0284c7;">🔔</div>
+          <h3>Instant Multi-Channel Alerts</h3>
+          <p>
+            Notify your team instantly via SMS, Push, or Email whenever a schedule is published, a shift changes, or an
+            urgent shift needs cover.
+          </p>
+          <div class="feature-pill-list">
+            <span>SMS Broadcasts</span>
+            <span>Mobile Push</span>
+            <span>Read Receipts</span>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="key-feature-card">
+          <div class="feature-top-icon" style="background: rgba(168, 85, 247, 0.1); color: #a855f7;">🏢</div>
+          <h3>Multi-Location Management</h3>
+          <p>
+            Oversee multiple stores, franchises, or regional branches in one unified portal. Share staff across nearby
+            locations without scheduling conflicts.
+          </p>
+          <div class="feature-pill-list">
+            <span>Franchise Controls</span>
+            <span>Cross-Branch Staff</span>
+            <span>Role Permissions</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. Customer Testimonial / Trust Section -->
-  <section class="testimonial">
-    <div class="container testimonial-container">
-      <div class="testimonial-content">
-        <div class="stars">★★★★★</div>
-        <blockquote class="quote">"ShiftFlow completely changed how we run our operations. Scheduling used to take days;
-          now it takes minutes. Our labor costs dropped by 12% in the first month."</blockquote>
-        <div class="customer-profile">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
-            alt="Sarah Jenkins" class="profile-img">
-          <div class="profile-info">
-            <div class="profile-name">Sarah Jenkins</div>
-            <div class="profile-role">Operations Director, Horizon Cafe Co.</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-metrics">
-        <div class="metric">
-          <div class="metric-value">90%</div>
-          <div class="metric-label">Faster Scheduling</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">0</div>
-          <div class="metric-label">Coverage Gaps</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">-15%</div>
-          <div class="metric-label">Reduced Overtime</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Final CTA + Footer -->
-  <section class="final-cta">
+  <!-- ========================================================================
+       4. HOW IT WORKS SECTION
+       ======================================================================== -->
+  <section class="section-py" id="how-it-works">
     <div class="container">
-      <div class="cta-box">
-        <h2 class="cta-title">Make Your Next Schedule Your Best One Yet.</h2>
-        <p class="cta-subtitle">Join thousands of businesses streamlining their workforce with ShiftFlow.</p>
-        <div class="cta-actions">
-          <a href="#" class="btn btn-primary btn-large">Start Free</a>
-          <a href="contact.html" class="btn btn-outline-light btn-large">Talk to Sales</a>
+      <div class="section-head">
+        <span class="badge badge-success">Simple 4-Step Process</span>
+        <h2 class="section-title">How ShiftFlow Works: Blank Grid to Published in Minutes</h2>
+        <p class="section-subtitle">
+          Turn hours of frustrating weekly spreadsheet wrangling into a seamless 4-step workflow that keeps your entire
+          workforce informed.
+        </p>
+      </div>
+
+      <div class="workflow-steps-grid">
+        <!-- Step 1 -->
+        <div class="workflow-card">
+          <div class="workflow-img-box">
+            <span class="workflow-step-num">1</span>
+            <img src="assets/images/build.jpg" alt="Step 1: Set Demand and Shift Rules">
+          </div>
+          <div class="workflow-info">
+            <h3>1. Set Demand &amp; Rules</h3>
+            <p>Define required station coverage, role qualifications, shift start/end times, and weekly labor cost
+              targets.</p>
+            <span class="workflow-meta">Step Time: 2 mins</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="workflow-card">
+          <div class="workflow-img-box">
+            <span class="workflow-step-num">2</span>
+            <img src="assets/images/feature1.jpg" alt="Step 2: Auto-Generate with AI">
+          </div>
+          <div class="workflow-info">
+            <h3>2. Auto-Generate with AI</h3>
+            <p>One click analyzes staff availability, hourly rates, contracted hours, and compliance rules to produce an
+              optimal schedule.</p>
+            <span class="workflow-meta">Step Time: 10 secs</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="workflow-card">
+          <div class="workflow-img-box">
+            <span class="workflow-step-num">3</span>
+            <img src="assets/images/publish.jpg" alt="Step 3: Publish and Broadcast">
+          </div>
+          <div class="workflow-info">
+            <h3>3. Publish &amp; Broadcast</h3>
+            <p>Release the completed schedule to your team. Staff receive push notifications and SMS updates on their
+              mobile app instantly.</p>
+            <span class="workflow-meta">Step Time: 1 click</span>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="workflow-card">
+          <div class="workflow-img-box">
+            <span class="workflow-step-num">4</span>
+            <img src="assets/images/optimize.jpg" alt="Step 4: Empower Shift Swaps and Track Attendance">
+          </div>
+          <div class="workflow-info">
+            <h3>4. Swaps &amp; Live Attendance</h3>
+            <p>Employees handle shift swaps with automatic manager sign-off. Live timeclock syncs hours directly into
+              payroll exports.</p>
+            <span class="workflow-meta">Continuous Sync</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========================================================================
+       5. AUTOMATED SCHEDULING DEEP DIVE SECTION
+       ======================================================================== -->
+  <section class="section-py" id="automated-scheduling" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="split-deepdive">
+        <div class="deepdive-content">
+          <span class="badge badge-primary">Automated Scheduling Engine</span>
+          <h2 class="deepdive-title">Eliminate Human Error &amp; Save 85% of Scheduling Time</h2>
+          <p class="deepdive-text">
+            Traditional scheduling requires juggling availability sheets, vacation calendars, wage limits, and changing
+            customer demand. ShiftFlow's AI Auto-Fill evaluates thousands of shift combinations in seconds to generate
+            the optimal staffing roster.
+          </p>
+          <ul class="deepdive-checklist">
+            <li>
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>Intelligent Shift Matching:</strong> Automatically prioritizes employee availability
+                preferences, skills, and contract minimums.
+              </div>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>Fair Workweek &amp; Clopening Protection:</strong> Built-in guards enforce mandatory rest
+                periods (e.g. 11+ hours between shifts) and predictable scheduling rules.
+              </div>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>Predictive Demand Alignment:</strong> Connect your POS data to auto-adjust staff levels during
+                peak lunchtime rushes and slow mid-week mornings.
+              </div>
+            </li>
+          </ul>
+          <div>
+            <a href="signup.html" class="btn btn-primary">Try Auto-Scheduling Free</a>
+          </div>
+        </div>
+        <div class="deepdive-visual">
+          <div class="deepdive-media-card">
+            <img src="assets/images/ai_scheduling_preview.jpg"
+              alt="ShiftFlow AI Auto-Fill and Conflict Resolution Interface" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. SHIFT MANAGEMENT DEEP DIVE SECTION
+       ======================================================================== -->
+  <section class="section-py" id="shift-management">
+    <div class="container">
+      <div class="split-deepdive reverse">
+        <div class="deepdive-content">
+          <span class="badge badge-accent">Real-Time Operations</span>
+          <h2 class="deepdive-title">Agile Shift Management for Real-World Workplace Chaos</h2>
+          <p class="deepdive-text">
+            No-shows and last-minute illnesses happen. ShiftFlow gives managers the tools to solve staffing shortages in
+            seconds without panicked group calls or disorganized texting.
+          </p>
+          <ul class="deepdive-checklist">
+            <li>
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>Open Shift Broadcasting:</strong> Blast unassigned shifts to qualified off-duty staff. Employees
+                can claim shifts on a first-come or manager-approved basis.
+              </div>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>Emergency Call-Out Coverage:</strong> When an employee reports sick, ShiftFlow instantly ranks
+                eligible replacements based on proximity and overtime limits.
+              </div>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>Live Attendance Dashboard:</strong> View who is currently clocked in, taking a break, or running
+                late in real time from any tablet or phone.
+              </div>
+            </li>
+          </ul>
+          <div>
+            <a href="dashboard.html" class="btn btn-secondary">Preview Shift Operations</a>
+          </div>
+        </div>
+        <div class="deepdive-visual">
+          <div class="deepdive-media-card">
+            <img src="assets/images/operations.jpg" alt="Real-time shift management and operations dashboard"
+              loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. EMPLOYEE AVAILABILITY & MOBILE EXPERIENCE SECTION
+       ======================================================================== -->
+  <section class="section-py" id="employee-availability" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="split-deepdive">
+        <div class="deepdive-content">
+          <span class="badge badge-success">Mobile Self-Service</span>
+          <h2 class="deepdive-title">Empower Staff with Self-Serve Availability &amp; 1-Tap Swaps</h2>
+          <p class="deepdive-text">
+            Give your employees schedule autonomy right from their smartphone. When staff can manage their own work-life
+            balance, morale skyrockets and absenteeism drops.
+          </p>
+          <ul class="deepdive-checklist">
+            <li>
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>Recurring Availability &amp; Blackouts:</strong> Workers set their available days and preferred
+                shifts weekly, cutting down scheduling friction before it starts.
+              </div>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>Peer-to-Peer Shift Trading:</strong> Team members trade shifts with coworkers in seconds.
+                ShiftFlow checks skill eligibility and routes for 1-tap manager sign-off.
+              </div>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>PTO &amp; Time-Off Workflows:</strong> Staff request vacation or sick time with live balance
+                counters; managers approve or decline in one touch.
+              </div>
+            </li>
+          </ul>
+          <div>
+            <a href="signup.html" class="btn btn-primary">Empower Your Team</a>
+          </div>
+        </div>
+        <div class="deepdive-visual">
+          <div class="deepdive-media-card">
+            <img src="assets/images/shift_swap_mobile.jpg"
+              alt="ShiftFlow Mobile App Shift Swap and Availability Tracking Screens" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. INTEGRATIONS SECTION
+       ======================================================================== -->
+  <section class="section-py" id="integrations">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge badge-primary">Ecosystem Connectivity</span>
+        <h2 class="section-title">Seamless Integrations with Your Favorite Tools</h2>
+        <p class="section-subtitle">
+          Connect ShiftFlow with your existing POS, payroll, HRIS, and communication channels for automated two-way
+          synchronization.
+        </p>
+      </div>
+
+      <div class="integrations-categories">
+        <!-- Category 1: POS & Sales -->
+        <div class="integration-box">
+          <div class="integration-box-header">
+            <span class="box-icon">💳</span>
+            <h3>POS &amp; Sales Data</h3>
+          </div>
+          <p>
+            Import live sales volume and foot-traffic data to optimize staffing levels and track real-time labor cost
+            percentage per hour.
+          </p>
+          <div class="integration-tags-row">
+            <span class="integration-chip">Square POS</span>
+            <span class="integration-chip">Toast</span>
+            <span class="integration-chip">Clover</span>
+            <span class="integration-chip">Shopify POS</span>
+            <span class="integration-chip">Lightspeed</span>
+          </div>
+        </div>
+
+        <!-- Category 2: Payroll & HRIS -->
+        <div class="integration-box">
+          <div class="integration-box-header">
+            <span class="box-icon">💼</span>
+            <h3>Payroll &amp; HR Systems</h3>
+          </div>
+          <p>
+            Export approved timesheets, overtime hours, and PTO balances into payroll with one click. Eliminate
+            double-entry errors permanently.
+          </p>
+          <div class="integration-tags-row">
+            <span class="integration-chip">Gusto</span>
+            <span class="integration-chip">ADP Workforce</span>
+            <span class="integration-chip">QuickBooks</span>
+            <span class="integration-chip">Paychex</span>
+            <span class="integration-chip">Rippling</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Team Communication -->
+        <div class="integration-box">
+          <div class="integration-box-header">
+            <span class="box-icon">💬</span>
+            <h3>Team Messaging</h3>
+          </div>
+          <p>
+            Deliver shift notifications, open shift broadcasts, and schedule change announcements directly into staff
+            channels and SMS.
+          </p>
+          <div class="integration-tags-row">
+            <span class="integration-chip">Slack</span>
+            <span class="integration-chip">MS Teams</span>
+            <span class="integration-chip">Twilio SMS</span>
+            <span class="integration-chip">WhatsApp Business</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. PRICING PLANS SECTION
+       ======================================================================== -->
+  <section class="section-py" id="pricing" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge badge-accent">Predictable Investment</span>
+        <h2 class="section-title">Transparent Pricing Built to Scale With Your Team</h2>
+        <p class="section-subtitle">
+          No setup fees. No long-term lock-in. Every plan includes a 14-day free trial so you can experience the
+          efficiency firsthand.
+        </p>
+      </div>
+
+      <!-- Billing Frequency Toggle -->
+      <div class="pricing-toggle-wrap">
+        <div class="pricing-switch-btn">
+          <button class="pricing-tab-btn active" id="btnMonthly" onclick="setBilling('monthly')">Monthly
+            Billing</button>
+          <button class="pricing-tab-btn" id="btnAnnual" onclick="setBilling('annual')">Annual Billing</button>
+        </div>
+        <span class="pricing-save-pill">Save 20% Annually</span>
+      </div>
+
+      <div class="pricing-cards-grid">
+        <!-- Plan 1: Starter -->
+        <div class="pricing-card">
+          <h3 class="plan-name">Starter</h3>
+          <p class="plan-desc">For small single-location teams getting started with digital schedules.</p>
+          <div class="plan-price-wrap">
+            <span class="plan-currency">$</span>
+            <span class="plan-amount" id="priceStarter">2.99</span>
+            <span class="plan-period">/ user / mo</span>
+          </div>
+          <ul class="plan-features-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Visual drag-and-drop calendar</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Mobile iOS &amp; Android employee app</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Availability &amp; blackout tracking</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Shift swap &amp; trade requests</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Email &amp; push notifications</li>
+          </ul>
+          <a href="signup.html" class="btn btn-secondary">Start 14-Day Free Trial</a>
+        </div>
+
+        <!-- Plan 2: Professional (Featured) -->
+        <div class="pricing-card featured">
+          <span class="featured-ribbon">Most Popular</span>
+          <h3 class="plan-name">Professional</h3>
+          <p class="plan-desc">For growing businesses needing AI automation, compliance, and cost control.</p>
+          <div class="plan-price-wrap">
+            <span class="plan-currency">$</span>
+            <span class="plan-amount" id="pricePro">4.99</span>
+            <span class="plan-period">/ user / mo</span>
+          </div>
+          <ul class="plan-features-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Everything in Starter, plus:</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> <strong>AI Auto-Scheduling Engine</strong></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Overtime &amp; conflict prevention shield</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Live time &amp; attendance clock</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> POS sales &amp; labor cost forecasting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Payroll integrations (Gusto, ADP, etc.)</li>
+          </ul>
+          <a href="signup.html" class="btn btn-primary">Start 14-Day Free Trial</a>
+        </div>
+
+        <!-- Plan 3: Enterprise -->
+        <div class="pricing-card">
+          <h3 class="plan-name">Enterprise</h3>
+          <p class="plan-desc">For multi-location brands, franchises, and organizations over 100 staff.</p>
+          <div class="plan-price-wrap">
+            <span class="plan-currency">$</span>
+            <span class="plan-amount" id="priceEnterprise">7.99</span>
+            <span class="plan-period">/ user / mo</span>
+          </div>
+          <ul class="plan-features-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Everything in Professional, plus:</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Multi-location &amp; franchise hierarchy</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Custom Fair Workweek compliance rules</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Dedicated account manager &amp; phone SLA</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg> Single Sign-On (SAML SSO) &amp; API access</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10. CUSTOMER TESTIMONIALS & STATS SECTION
+       ======================================================================== -->
+  <section class="section-py" id="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge badge-success">Proven Operational Results</span>
+        <h2 class="section-title">Loved by Over 10,000 Shift Managers &amp; Teams</h2>
+        <p class="section-subtitle">
+          See how leading operations managers across hospitality, retail, healthcare, and logistics transformed their
+          workforce productivity with ShiftFlow.
+        </p>
+      </div>
+
+      <div class="testimonials-row">
+        <!-- Testimonial 1: Restaurant/Hospitality -->
+        <div class="testimonial-card-modern">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-quote">
+            "We manage 6 restaurant locations and over 140 staff. ShiftFlow reduced our weekly scheduling time from 14
+            hours to 45 minutes, and our unapproved overtime dropped to zero in the first month."
+          </p>
+          <div class="test-author-box">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop"
+              alt="Sarah Jenkins" class="test-avatar">
+            <div class="test-author-info">
+              <strong>Sarah Jenkins</strong>
+              <span>Operations Director · Horizon Cafe Co.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2: Retail -->
+        <div class="testimonial-card-modern">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-quote">
+            "Employee turnover dropped by 24% after giving our associates the ShiftFlow mobile app. Staff love
+            submitting availability and swapping shifts without bothering store managers on their days off."
+          </p>
+          <div class="test-author-box">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
+              alt="David Chen" class="test-avatar">
+            <div class="test-author-info">
+              <strong>David Chen</strong>
+              <span>Regional HR Manager · Prime Retail Group</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3: Healthcare -->
+        <div class="testimonial-card-modern">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-quote">
+            "Healthcare staffing requires strict credential verification and safe nurse-to-patient ratios. ShiftFlow's
+            compliance engine prevents understaffing and protects patient care standards daily."
+          </p>
+          <div class="test-author-box">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop"
+              alt="Dr. Jonathan Hayes" class="test-avatar">
+            <div class="test-author-info">
+              <strong>Dr. Jonathan Hayes</strong>
+              <span>Clinical Operations Lead · Metro Health Clinics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Counter Banner -->
+      <div class="stats-counter-banner">
+        <div class="stat-item">
+          <h3>92%</h3>
+          <p>Reduction in Weekly Scheduling Time</p>
+        </div>
+        <div class="stat-item">
+          <h3>-18%</h3>
+          <p>Average Decrease in Overtime Costs</p>
+        </div>
+        <div class="stat-item">
+          <h3>99.4%</h3>
+          <p>Open Shift Fulfillment Rate</p>
+        </div>
+        <div class="stat-item">
+          <h3>4.9/5</h3>
+          <p>App Store &amp; G2 Customer Rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11. FAQS SECTION
+       ======================================================================== -->
+  <section class="section-py" id="faq" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge badge-primary">Clear Answers</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Everything you need to know about ShiftFlow, employee shift swaps, automated scheduling, and system
+          integrations.
+        </p>
+      </div>
+
+      <div class="faqs-wrapper">
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>How does ShiftFlow prevent scheduling conflicts and overtime?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              ShiftFlow constantly audits schedules against employee contract hours, pre-approved time off, and local
+              labor legislation (such as Fair Workweek rest intervals and maximum overtime caps). If a manager attempts
+              to assign a conflicting shift or schedule an employee too close to a previous shift (clopening), ShiftFlow
+              triggers an instant warning and recommends eligible replacements.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>Can employees swap shifts on their own without calling the manager?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              Yes. Through the ShiftFlow mobile app (iOS and Android), employees can initiate peer shift swaps or drop
+              shifts into the open pool. ShiftFlow validates that the replacement possesses the required station
+              certifications and won't trigger overtime before routing the trade for a 1-tap manager approval.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>How does the AI automated scheduling algorithm work?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              ShiftFlow's AI scheduler evaluates your required station coverage, projected sales volume from your POS,
+              staff availability preferences, contracted hour guarantees, and wage budgets. In seconds, it produces a
+              complete, balanced schedule that maximizes shift satisfaction while minimizing labor cost variance.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>Does ShiftFlow integrate with our payroll provider and POS system?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              Yes. ShiftFlow includes native, pre-built integrations with top payroll providers including Gusto, ADP
+              Workforce Now, QuickBooks, Paychex, and Rippling, as well as leading POS terminals like Square, Toast,
+              Clover, and Shopify. Timesheets sync directly, eliminating manual data entry.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>Can we use ShiftFlow across multiple branches or store locations?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              Absolutely. ShiftFlow's enterprise hierarchy allows regional directors to manage multiple locations while
+              giving store-level managers autonomy over their specific departments. Staff can even be shared across
+              nearby locations without risking double bookings.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>Is there a free trial, and do I need to enter credit card details?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              We offer a completely unrestricted 14-day free trial on all plans. You do not need to enter any credit
+              card information to start. You can invite your team, test out scheduling workflows, and experience the
+              time savings before making any purchase decision.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       12. FINAL CALL TO ACTION SECTION
+       ======================================================================== -->
+  <section class="final-cta-section" id="cta">
+    <div class="container">
+      <div class="final-cta-banner">
+        <div class="final-cta-content">
+          <span class="badge badge-success"
+            style="background: rgba(16, 185, 129, 0.2); color: #34d399; border-color: rgba(16, 185, 129, 0.4);">
+            Ready to Take Control?
+          </span>
+          <h2 class="final-cta-title">Eliminate Scheduling Headaches Forever.</h2>
+          <p class="final-cta-desc">
+            Join thousands of businesses that save 8+ hours every week, eliminate overtime errors, and keep their
+            frontline staff satisfied with ShiftFlow.
+          </p>
+          <div class="final-cta-actions">
+            <a href="signup.html" class="btn btn-primary" style="padding: 1rem 2.25rem; font-size: 1.0625rem;">Start
+              Your 14-Day Free Trial</a>
+            <a href="dashboard.html" class="btn btn-white" style="padding: 1rem 2rem; font-size: 1.0625rem;">View Live
+              Demo Dashboard</a>
+          </div>
+          <div class="final-cta-perks">
+            <span>✓ No credit card required</span>
+            <span>✓ Full feature access</span>
+            <span>✓ Cancel anytime with 1 click</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -719,8 +1044,10 @@
             </svg>
             ShiftFlow
           </a>
-          <p class="footer-desc">Empowering hourly teams to do their best work through intelligent scheduling and
-            workforce management.</p>
+          <p class="footer-desc">
+            Empowering hourly teams and operations leaders worldwide through automated scheduling, seamless shift
+            management, and real-time labor intelligence.
+          </p>
           <div class="social-icons">
             <a href="#" class="social-icon" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -751,34 +1078,36 @@
         <div class="footer-col">
           <h4>Platform</h4>
           <ul>
-            <li><a href="features.html">Scheduling</a></li>
-            <li><a href="#">Time & Attendance</a></li>
-            <li><a href="#">Team Communication</a></li>
-            <li><a href="#">Labor Forecasting</a></li>
-            <li><a href="#">Integrations</a></li>
+            <li><a href="#automated-scheduling">Automated Scheduling</a></li>
+            <li><a href="#shift-management">Shift Management</a></li>
+            <li><a href="#employee-availability">Availability &amp; Swaps</a></li>
+            <li><a href="dashboard.html">Time &amp; Attendance</a></li>
+            <li><a href="#integrations">POS &amp; Payroll Integrations</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Solutions</h4>
+          <h4>Industries</h4>
           <ul>
-            <li><a href="industries.html">Restaurants</a></li>
-            <li><a href="#">Retail</a></li>
-            <li><a href="#">Healthcare</a></li>
-            <li><a href="#">Hospitality</a></li>
+            <li><a href="industries.html">Restaurants &amp; Bars</a></li>
+            <li><a href="industries.html">Retail &amp; Supermarkets</a></li>
+            <li><a href="industries.html">Healthcare &amp; Clinics</a></li>
+            <li><a href="industries.html">Logistics &amp; Warehousing</a></li>
+            <li><a href="industries.html">Hospitality &amp; Hotels</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="features.html">Feature Tour</a></li>
+            <li><a href="#pricing">Pricing Plans</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+            <li><a href="dashboard.html">Live Dashboard</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 ShiftFlow Inc. All rights reserved.</p>
+        <p>&copy; 2026 ShiftFlow Inc. All rights reserved. Built for hourly workforces worldwide.</p>
       </div>
     </div>
     <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
@@ -789,20 +1118,45 @@
     </button>
   </footer>
 
+  <script src="assets/js/main.js"></script>
   <script>
-    // Scroll to Top
-    const scrollBtn = document.getElementById('scrollTopBtn');
-    if (scrollBtn) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) scrollBtn.classList.add('visible');
-        else scrollBtn.classList.remove('visible');
-      });
-      scrollBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Interactive Pricing Toggle
+    function setBilling(cycle) {
+      const btnMonthly = document.getElementById('btnMonthly');
+      const btnAnnual = document.getElementById('btnAnnual');
+      const priceStarter = document.getElementById('priceStarter');
+      const pricePro = document.getElementById('pricePro');
+      const priceEnterprise = document.getElementById('priceEnterprise');
+
+      if (cycle === 'annual') {
+        btnAnnual.classList.add('active');
+        btnMonthly.classList.remove('active');
+        priceStarter.textContent = '2.39';
+        pricePro.textContent = '3.99';
+        priceEnterprise.textContent = '6.39';
+      } else {
+        btnMonthly.classList.add('active');
+        btnAnnual.classList.remove('active');
+        priceStarter.textContent = '2.99';
+        pricePro.textContent = '4.99';
+        priceEnterprise.textContent = '7.99';
+      }
+    }
+
+    // Interactive FAQ Accordion
+    function toggleFaq(btn) {
+      const currentItem = btn.closest('.faq-item');
+      const allItems = document.querySelectorAll('.faq-item');
+
+      allItems.forEach(item => {
+        if (item === currentItem) {
+          item.classList.toggle('active');
+        } else {
+          item.classList.remove('active');
+        }
       });
     }
   </script>
-  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
