@@ -359,16 +359,23 @@ li.mobile-nav-actions {
 
   .mobile-actions-wrapper {
     display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 0.75rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.85rem !important;
     width: 100% !important;
   }
 
   .mobile-icon-toggles {
     display: flex !important;
     align-items: center !important;
-    gap: 0.5rem !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  [dir="rtl"] .mobile-icon-toggles {
+    justify-content: center !important;
   }
 
   .mobile-icon-toggles .btn-icon {
@@ -384,21 +391,56 @@ li.mobile-nav-actions {
     cursor: pointer !important;
   }
 
-  .mobile-actions-wrapper .btn-mobile-login {
-    flex: 1 !important;
+  .mobile-actions-wrapper .btn-mobile-login,
+  .navbar .nav-links .mobile-actions-wrapper a.btn-mobile-login,
+  .navbar .nav-links a.btn-mobile-login {
+    width: 100% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    padding: 0.6rem 1.25rem !important;
-    font-size: 0.9rem !important;
+    padding: 0.7rem 1.25rem !important;
+    font-size: 0.95rem !important;
     font-weight: 600 !important;
     border-radius: var(--radius-md, 8px) !important;
+    background-color: var(--color-primary) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-decoration: none !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+
+  .mobile-actions-wrapper .btn-mobile-login:hover,
+  .navbar .nav-links .mobile-actions-wrapper a.btn-mobile-login:hover,
+  .navbar .nav-links a.btn-mobile-login:hover {
+    background-color: var(--color-primary-hover) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transform: translateY(-1px) !important;
   }
 
   [dir="rtl"] .mobile-actions-wrapper {
-    flex-direction: row-reverse !important;
+    flex-direction: column !important;
   }
+}
+
+/* Ensure Login Button text is clearly visible in light mode & all themes across viewports */
+.btn-mobile-login,
+.navbar .nav-links a.btn-primary,
+.navbar .nav-links a.btn-mobile-login,
+.nav-actions a.btn-primary,
+.nav-actions .btn-primary {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.btn-mobile-login:hover,
+.navbar .nav-links a.btn-primary:hover,
+.navbar .nav-links a.btn-mobile-login:hover,
+.nav-actions a.btn-primary:hover,
+.nav-actions .btn-primary:hover {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 
 /* Authentication page tablet & mobile vertical center with safe breathing room */
