@@ -73,19 +73,20 @@
   direction: rtl;
 }
 
-[dir="rtl"] .nav-container,
 [dir="rtl"] .footer-grid {
   flex-direction: row-reverse;
 }
 
+[dir="rtl"] .nav-container {
+  flex-direction: row;
+}
+
 [dir="rtl"] .nav-links {
-  margin-right: auto;
-  margin-left: 0;
+  margin: 0;
 }
 
 [dir="rtl"] .nav-actions {
-  margin-right: 0;
-  margin-left: 0;
+  margin: 0;
 }
 
 [dir="rtl"] .hero-container,

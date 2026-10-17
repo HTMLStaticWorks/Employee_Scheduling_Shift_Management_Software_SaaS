@@ -393,8 +393,7 @@
   .hero-actions { justify-content: center; }
   
   .ind-hero-visual { margin-top: var(--space-8); }
-  .img-back, .img-front { position: static; width: 100%; border: none; }
-  .img-back { display: none; }
+  .img-back, .img-front { display: block; position: static; width: 100%; border: none; border-radius: var(--radius-lg); }
   
   .solutions-grid { grid-template-columns: repeat(2, 1fr); }
   

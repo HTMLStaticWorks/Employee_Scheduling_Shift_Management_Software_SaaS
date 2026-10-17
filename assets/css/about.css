@@ -186,18 +186,18 @@
 .timeline-item {
   position: relative;
   z-index: 2;
-  text-align: center;
-  background: white;
-  padding: 0 0.5rem;
+  text-align: left;
+  background: transparent;
+  padding: 0;
 }
 
 .t-year {
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-heading);
   font-size: 1.125rem;
-  background: white;
+  background: transparent;
   display: inline-block;
-  padding: 0 0.25rem;
+  padding: 0;
   margin-bottom: 0.25rem;
 }
 

@@ -218,87 +218,135 @@
 
   <style>
     /* =========================================================
-   BUILT FOR EVERY WORKFORCE - IMAGE RESPONSIVE FIX
-   ========================================================= */
-
-    /* Every workforce image uses the same visual container */
-    .industries-tabs .tabs-content,
-    .industries-tabs .tab-pane,
-    .industries-tabs .pane-grid {
+       BUILT FOR EVERY WORKFORCE - PROPER IMAGE & CONTENT ALIGNMENT
+       ========================================================= */
+    .industries-tabs .tabs-content {
+      background: var(--color-surface, #ffffff);
+      border-radius: var(--radius-lg, 16px);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
       width: 100%;
       box-sizing: border-box;
     }
 
+    .industries-tabs .tab-pane {
+      width: 100%;
+    }
+
+    .industries-tabs .pane-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 2.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .industries-tabs .pane-text {
+      padding: 0 !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .industries-tabs .pane-text h3 {
+      font-size: 1.85rem;
+      margin-bottom: 1rem;
+      color: var(--color-heading);
+    }
+
+    .industries-tabs .pane-text p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+    }
+
     .industries-tabs .pane-image {
       width: 100% !important;
-      height: 300px !important;
-      min-height: 300px !important;
-      background-repeat: no-repeat !important;
-      background-position: center center !important;
+      height: 340px !important;
+      min-height: 340px !important;
       background-size: cover !important;
-      border-radius: var(--radius-md, 16px);
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      border-radius: var(--radius-md, 12px) !important;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
       overflow: hidden;
       box-sizing: border-box;
     }
 
-    /* Tablet: show the COMPLETE image instead of cropping it */
+    /* Tablet */
     @media (min-width: 768px) and (max-width: 1024px) {
       .industries-tabs .pane-grid {
-        align-items: stretch !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.75rem !important;
+        padding: 2rem !important;
+        align-items: center !important;
       }
 
       .industries-tabs .pane-image {
-        width: 100% !important;
         height: 280px !important;
         min-height: 280px !important;
-        background-size: contain !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-        background-color: var(--surface, #fff);
-        border: 1px solid var(--border-color, #dfe5ec);
-      }
-
-      .industries-tabs .pane-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        background-size: cover !important;
+        background-position: center !important;
       }
     }
 
-    /* Mobile: same-size image container and complete image visible */
+    /* Mobile */
     @media (max-width: 767.98px) {
       .industries-tabs .pane-grid {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1.25rem;
-      }
-
-      .industries-tabs .pane-text,
-      .industries-tabs .pane-image {
-        width: 100% !important;
+        gap: 1.5rem !important;
+        padding: 1.5rem !important;
       }
 
       .industries-tabs .pane-image {
         height: 220px !important;
         min-height: 220px !important;
-        background-size: contain !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-        background-color: var(--surface, #fff);
-        border: 1px solid var(--border-color, #dfe5ec);
+        background-size: cover !important;
+        background-position: center !important;
+        order: -1;
       }
 
       .industries-tabs .tabs-nav {
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
-        gap: .65rem;
+        gap: .5rem;
       }
 
       .industries-tabs .tabs-nav .tab-btn {
         width: 100% !important;
         min-width: 0 !important;
       }
+    }
+
+    /* Hero Image for Home-2 */
+    .hero-img-wrapper-h2 {
+      width: 100%;
+      border-radius: var(--radius-lg, 16px);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1));
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      transition: transform var(--transition-normal);
+    }
+
+    .hero-img-wrapper-h2:hover {
+      transform: translateY(-4px);
+    }
+
+    .hero-img-h2 {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: cover;
+      display: block;
     }
   </style>
 
@@ -332,6 +380,27 @@
         <li><a href="industries.html" class="nav-link">Industries</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
         <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li class="mobile-nav-actions">
+          <div class="mobile-actions-wrapper">
+            <div class="mobile-icon-toggles">
+              <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 11H3M17 11L13 7M17 11L13 15M7 17H21M7 17L11 13M7 17L11 21" />
+                </svg>
+              </button>
+              <button class="btn-icon theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                  <circle cx="12" cy="12" r="5" />
+                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+              </button>
+            </div>
+            <a href="login.html" class="btn btn-primary btn-mobile-login">Login</a>
+          </div>
+        </li>
       </ul>
       <div class="nav-actions">
         <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL">
@@ -366,41 +435,9 @@
         </div>
       </div>
       <div class="hero-visual-h2">
-        <div class="calendar-ui-h2">
-          <div class="cal-header">
-            <h4>Weekly Schedule</h4>
-            <span class="cal-badge">Oct 16 - Oct 22</span>
-          </div>
-          <div class="cal-body">
-            <div class="cal-row header-row">
-              <div>Employee</div>
-              <div>Mon</div>
-              <div>Tue</div>
-              <div>Wed</div>
-              <div>Thu</div>
-              <div>Fri</div>
-            </div>
-            <div class="cal-row">
-              <div class="emp-name">Alex M.</div>
-              <div class="shift-block morning">9a - 5p</div>
-              <div class="shift-block morning">9a - 5p</div>
-              <div class="shift-block off">Off</div>
-              <div class="shift-block evening">2p - 10p</div>
-              <div class="shift-block evening">2p - 10p</div>
-            </div>
-            <div class="cal-row">
-              <div class="emp-name">Sarah J.</div>
-              <div class="shift-block off">Off</div>
-              <div class="shift-block evening">1p - 9p</div>
-              <div class="shift-block morning">9a - 5p</div>
-              <div class="shift-block morning">9a - 5p</div>
-              <div class="shift-block off">Off</div>
-            </div>
-          </div>
+        <div class="hero-img-wrapper-h2">
+          <img src="assets/images/ai_scheduling_preview.jpg" alt="ShiftFlow Workforce Scheduling Software Preview" class="hero-img-h2">
         </div>
-
-
-
       </div>
     </div>
   </section>
@@ -542,9 +579,8 @@
             <div class="pane-grid">
               <div class="pane-text">
                 <h3>Hospitality</h3>
-                <p>Maintain strict nurse-to-patient ratios, track certifications, and manage complex 24/7 rotational
-                  shifts while remaining compliant.</p>
-                <a href="#" class="btn btn-outline mt-4">See Healthcare Solutions</a>
+                <p>Manage fluctuating guest occupancy, banquet events, housekeeping shifts, and front desk rotations seamlessly.</p>
+                <a href="#" class="btn btn-outline mt-4">See Hospitality Solutions</a>
               </div>
               <div class="pane-image" style="background-image: url('assets/images/hospitality.png');">
               </div>
@@ -554,9 +590,8 @@
             <div class="pane-grid">
               <div class="pane-text">
                 <h3>Logistics</h3>
-                <p>Maintain strict nurse-to-patient ratios, track certifications, and manage complex 24/7 rotational
-                  shifts while remaining compliant.</p>
-                <a href="#" class="btn btn-outline mt-4">See Healthcare Solutions</a>
+                <p>Coordinate warehouse shifts, drivers, and multi-facility freight dispatch with real-time overtime and fatigue compliance.</p>
+                <a href="#" class="btn btn-outline mt-4">See Logistics Solutions</a>
               </div>
               <div class="pane-image" style="background-image: url('assets/images/logistics.png');">
               </div>
@@ -618,19 +653,22 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col brand-col">
-          <a href="index.html" class="brand">
+          <a href="index.html" class="footer-brand">
             <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
             ShiftFlow
           </a>
-          <p class="footer-desc">Empowering hourly teams to do their best work through intelligent scheduling and
-            workforce management.</p>
+          <p class="footer-desc">
+            Empowering hourly teams and operations leaders worldwide through automated scheduling, seamless shift
+            management, and real-time labor intelligence.
+          </p>
           <div class="social-icons">
             <a href="#" class="social-icon" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -661,34 +699,36 @@
         <div class="footer-col">
           <h4>Platform</h4>
           <ul>
-            <li><a href="features.html">Scheduling</a></li>
-            <li><a href="#">Time & Attendance</a></li>
-            <li><a href="#">Team Communication</a></li>
-            <li><a href="#">Labor Forecasting</a></li>
-            <li><a href="#">Integrations</a></li>
+            <li><a href="features.html">Automated Scheduling</a></li>
+            <li><a href="features.html">Shift Management</a></li>
+            <li><a href="features.html">Availability &amp; Swaps</a></li>
+            <li><a href="dashboard.html">Time &amp; Attendance</a></li>
+            <li><a href="features.html">POS &amp; Payroll Integrations</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Solutions</h4>
+          <h4>Industries</h4>
           <ul>
-            <li><a href="industries.html">Restaurants</a></li>
-            <li><a href="#">Retail</a></li>
-            <li><a href="#">Healthcare</a></li>
-            <li><a href="#">Hospitality</a></li>
+            <li><a href="industries.html">Restaurants &amp; Bars</a></li>
+            <li><a href="industries.html">Retail &amp; Supermarkets</a></li>
+            <li><a href="industries.html">Healthcare &amp; Clinics</a></li>
+            <li><a href="industries.html">Logistics &amp; Warehousing</a></li>
+            <li><a href="industries.html">Hospitality &amp; Hotels</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="features.html">Feature Tour</a></li>
+            <li><a href="index.html#pricing">Pricing Plans</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+            <li><a href="dashboard.html">Live Dashboard</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 ShiftFlow Inc. All rights reserved.</p>
+        <p>&copy; 2026 ShiftFlow Inc. All rights reserved. Built for hourly workforces worldwide.</p>
       </div>
     </div>
     <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
