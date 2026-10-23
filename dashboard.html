@@ -104,8 +104,10 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 var(--space-6);
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: var(--sidebar-width);
+      right: 0;
       z-index: 40;
     }
 
@@ -173,6 +175,7 @@
 
     .dashboard-content {
       padding: var(--space-6);
+      padding-top: calc(70px + var(--space-6));
       flex: 1;
     }
 
@@ -351,7 +354,8 @@
 
     @media (max-width: 991px) {
       .dashboard-header {
-        position: sticky;
+        position: fixed;
+        left: 0;
       }
 
       .dashboard-header .header-left {
@@ -407,6 +411,7 @@
     @media (max-width: 767px) {
       .dashboard-content {
         padding: 1rem;
+        padding-top: calc(70px + 1rem);
       }
 
       .stat-grid {
@@ -460,6 +465,7 @@
 
       .dashboard-content {
         padding: 0.875rem !important;
+        padding-top: calc(70px + 0.875rem) !important;
         min-width: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
